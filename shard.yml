@@ -1,0 +1,13 @@
+name: sunshine
+version: 0.1.0
+
+authors:
+  - Ian Rash <redcodefinal@gmail.com>
+
+targets:
+  sunshine:
+    main: src/sunshine.cr
+
+crystal: 0.28.0
+
+license: MIT
