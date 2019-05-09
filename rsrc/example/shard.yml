@@ -1,0 +1,17 @@
+name: libsunvox-example
+version: 0.1.0
+
+authors:
+  - Ian Rash <redcodefinal@gmail.com>
+
+targets:
+  example:
+    main: src/example.cr
+
+dependencies:
+  libsunvox:
+    github: sol-vin/libsunvox
+
+crystal: 1.0
+
+license: MIT

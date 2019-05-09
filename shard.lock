@@ -1,0 +1,6 @@
+version: 1.0
+shards:
+  asound:
+    github: TamasSzekeres/asound-cr
+    commit: c003f5ab2b984b4183f76a2bb878fda1385546ad
+

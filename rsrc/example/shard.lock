@@ -1,0 +1,6 @@
+version: 2.0
+shards:
+  libsunvox:
+    git: https://github.com/sol-vin/libsunvox.git
+    version: 0.9+git.commit.5754f07bb5bab91b4cf07fb4fb0f4f28c8f909ae
+

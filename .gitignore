@@ -1,5 +1,8 @@
-/docs/
+/site/
 /lib/
 /bin/
 /.shards/
 *.dwarf
+/rsrc/example/bin/
+/rsrc/example/lib/
+
