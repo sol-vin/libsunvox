@@ -232,3 +232,71 @@ SunVox.send_event(slot, 4, SunVox::Note::D5, 0, generator)
 
 sleep
 ```
+
+Live monitor output levels
+```crystal
+require "crysterm" #{crystallabs/crysterm}
+require "libsunvox"
+
+
+include Crysterm
+
+COLORS = [10, 11, 9]
+
+SunVox.start_engine(config: "audiodriver=alsa|audiodevice=hw:0,0|audiodevice_in=hw:2,0", no_debug_output: true, one_thread: false)
+# Opens a slot for us to use
+slot = SunVox.open_slot(SunVox::Slot::Zero)
+SunVox.load(slot, "./rsrc/song.sunvox")
+SunVox.play_from_beginning(slot)
+
+def draw(s : Screen, x, y, fg = 0, bg = 0, char = ' ')
+    s.fill_region(Widget.sattr(Namespace::Style.new, fg, bg), char, x, x+1, y, y+1)
+end
+
+def draw_region(s : Screen, x1, y1, x2, y2, fg = 0, bg = 0, char = ' ')
+  s.fill_region(Widget.sattr(Namespace::Style.new, fg, bg), char, x1, x2, y1, y2)
+end
+
+def clear(s : Screen)
+  draw_region(s, 0, 0, s.width, s.height)
+end
+
+def draw_frame(s)
+  output_level = (SunVox.get_current_signal_level(SunVox::Slot::Zero, 0)/100.0).clamp(0, 0.9)
+  output_color = COLORS[(COLORS.size*output_level).to_i]
+  draw_region(s, 0, 5, (s.width*output_level).to_i , 10, bg: output_color)
+
+  output_level =(SunVox.get_current_signal_level(SunVox::Slot::Zero, 1)/100.0).clamp(0, 0.9)
+  output_color = COLORS[(COLORS.size*output_level).to_i]
+  draw_region(s, 0, 12, (s.width*output_level).to_i , 17, bg: output_color-8)
+end
+
+# `Display` is a phyiscal device (terminal hardware or emulator).
+# It can be instantiated manually as shown, or for quick coding it can be
+# skipped and it will be created automatically when needed.
+d = Display.new
+
+# `Screen` is a full-screen surface which contains visual elements (Widgets),
+# on which graphics is rendered, and which is then drawn onto the terminal.
+# An app can have multiple screens, but only one can be showing at a time.
+s = Screen.new display: d
+
+# When q is pressed, exit the demo.
+s.on(Event::KeyPress) do |e|
+  if e.char == 'q'
+    exit
+  end
+end
+
+spawn do
+  loop do
+    sleep 0.1
+    clear(s)
+    draw_frame(s)
+    s.render
+  end
+end
+
+d.exec
+
+```
