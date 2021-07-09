@@ -235,7 +235,7 @@ sleep
 
 Live monitor output levels
 ```crystal
-require "crysterm" #{crystallabs/crysterm}
+require "crysterm" # github: crystallabs/crysterm
 require "libsunvox"
 
 

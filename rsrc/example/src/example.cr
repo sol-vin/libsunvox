@@ -32,6 +32,7 @@ SunVox.send_event(slot, 0, SunVox::Note::None, 0, carrier, ctl: 2, ctl_value: 0x
 SunVox.send_event(slot, 0, SunVox::Note::None, 0, modulator, ctl: 1, ctl_value: 0x69c0)
 SunVox.send_event(slot, 0, SunVox::Note::None, 0, modulator, ctl: 2, ctl_value: 0)
 
+# Send all the notes
 SunVox.send_event(slot, 0, SunVox::Note::D1, 0, generator)
 SunVox.send_event(slot, 1, SunVox::Note::D2, 0, generator)
 SunVox.send_event(slot, 2, SunVox::Note::D3, 0, generator)
