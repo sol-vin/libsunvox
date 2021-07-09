@@ -1,0 +1,1986 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://libsunvox.github.io/SunVox.html">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+    
+    
+      
+        <title>API - libsunvox</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="css/mkdocstrings.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#SunVox" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="libsunvox" class="md-header__button md-logo" aria-label="libsunvox" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            libsunvox
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/sol-vin/libsunvox/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="libsunvox" class="md-nav__button md-logo" aria-label="libsunvox" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    libsunvox
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/sol-vin/libsunvox/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="BASICS.html" class="md-nav__link">
+        Basics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="EXAMPLES.html" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="SunVox.html" class="md-nav__link md-nav__link--active"
+            style="margin: initial; padding: initial; pointer-events: initial">
+        
+          API
+        </a>
+      </label>
+      <nav class="md-nav" aria-label="API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          
+            <a href="SunVox.html" class="md-nav__link md-nav__link--active"
+              style="margin: initial; padding: initial; pointer-events: initial">
+          
+            API
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Event.html" class="md-nav__link">
+        Event
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/ModuleType.html" class="md-nav__link">
+        ModuleType
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="SunVox/Modules.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
+        
+          Modules
+        </a>
+      </label>
+      <nav class="md-nav" aria-label="Modules" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          
+            <a href="SunVox/Modules.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
+          
+            Modules
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Modules/Effects.html" class="md-nav__link">
+        Effects
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Modules/Misc.html" class="md-nav__link">
+        Misc
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Modules/Synths.html" class="md-nav__link">
+        Synths
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Note.html" class="md-nav__link">
+        Note
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/SampleType.html" class="md-nav__link">
+        SampleType
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Scale.html" class="md-nav__link">
+        Scale
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Scales.html" class="md-nav__link">
+        Scales
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Slot.html" class="md-nav__link">
+        Slot
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#SunVox-constants" class="md-nav__link">
+    Constants
+  </a>
+  
+    <nav class="md-nav" aria-label="Constants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#SunVox::CURRENT_VERSION_MAJOR" class="md-nav__link">
+    CURRENT_VERSION_MAJOR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox::CURRENT_VERSION_MINOR" class="md-nav__link">
+    CURRENT_VERSION_MINOR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox::CURRENT_VERSION_MINOR2" class="md-nav__link">
+    CURRENT_VERSION_MINOR2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox::DEFAULT_CHANNELS" class="md-nav__link">
+    DEFAULT_CHANNELS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox::DEFAULT_CONFIG" class="md-nav__link">
+    DEFAULT_CONFIG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox::DEFAULT_FREQ" class="md-nav__link">
+    DEFAULT_FREQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox::MAX_SLOTS" class="md-nav__link">
+    MAX_SLOTS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox::NO_MODULE" class="md-nav__link">
+    NO_MODULE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox::OUTPUT_MODULE" class="md-nav__link">
+    OUTPUT_MODULE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#SunVox-class-methods" class="md-nav__link">
+    Class methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Class methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.close_slot(slot)" class="md-nav__link">
+    .close_slot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.connect_module(slot,src,dest)" class="md-nav__link">
+    .connect_module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.disconnect_module(slot,src,dest)" class="md-nav__link">
+    .disconnect_module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.end_of_song?(slot)" class="md-nav__link">
+    .end_of_song?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.find_module(slot,name)" class="md-nav__link">
+    .find_module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.find_pattern(slot,name)" class="md-nav__link">
+    .find_pattern
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.frequency_to_pitch(in_freq)" class="md-nav__link">
+    .frequency_to_pitch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_current_line(slot)" class="md-nav__link">
+    .get_current_line
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_current_line2(slot)" class="md-nav__link">
+    .get_current_line2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_current_signal_level(slot,channel)" class="md-nav__link">
+    .get_current_signal_level
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_log(bytes)" class="md-nav__link">
+    .get_log
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_module_color(slot,module_num)" class="md-nav__link">
+    .get_module_color
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_module_ctl_name(slot,module_num,ctl_num)" class="md-nav__link">
+    .get_module_ctl_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_module_ctl_value(slot,module_num,ctl_num,scaled)" class="md-nav__link">
+    .get_module_ctl_value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_module_curve(slot,module_num,curve_num,length)" class="md-nav__link">
+    .get_module_curve
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_module_finetune(slot,module_num)" class="md-nav__link">
+    .get_module_finetune
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_module_flags(slot,module_num)" class="md-nav__link">
+    .get_module_flags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_module_inputs(slot,module_num)" class="md-nav__link">
+    .get_module_inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_module_inputs_number(slot,module_num)" class="md-nav__link">
+    .get_module_inputs_number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_module_name(slot,name)" class="md-nav__link">
+    .get_module_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_module_outputs(slot,module_num)" class="md-nav__link">
+    .get_module_outputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_module_outputs_number(slot,module_num)" class="md-nav__link">
+    .get_module_outputs_number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_module_scope(slot,module_num,channel,samples_to_read)" class="md-nav__link">
+    .get_module_scope
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_module_xy(slot,module_num)" class="md-nav__link">
+    .get_module_xy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_number_of_module_ctls(slot,module_num)" class="md-nav__link">
+    .get_number_of_module_ctls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_number_of_modules(slot)" class="md-nav__link">
+    .get_number_of_modules
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_number_of_patterns(slot)" class="md-nav__link">
+    .get_number_of_patterns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_pattern_data(slot,pattern_num)" class="md-nav__link">
+    .get_pattern_data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_pattern_lines(slot,pattern_num)" class="md-nav__link">
+    .get_pattern_lines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_pattern_name(slot,pattern_num)" class="md-nav__link">
+    .get_pattern_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_pattern_tracks(slot,pattern_num)" class="md-nav__link">
+    .get_pattern_tracks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_pattern_x(slot,pat_num)" class="md-nav__link">
+    .get_pattern_x
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_pattern_y(slot,pat_num)" class="md-nav__link">
+    .get_pattern_y
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_song_bpm(slot)" class="md-nav__link">
+    .get_song_bpm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_song_length(slot)" class="md-nav__link">
+    .get_song_length
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_song_length_frames(slot)" class="md-nav__link">
+    .get_song_length_frames
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_song_length_lines(slot)" class="md-nav__link">
+    .get_song_length_lines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_song_name(slot)" class="md-nav__link">
+    .get_song_name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.get_song_tpl(slot)" class="md-nav__link">
+    .get_song_tpl
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.load(slot,filename)" class="md-nav__link">
+    .load
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.load_module(slot,filename,x,y,z)" class="md-nav__link">
+    .load_module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.module_bypass?(slot,module_num)" class="md-nav__link">
+    .module_bypass?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.module_effect?(slot,module_num)" class="md-nav__link">
+    .module_effect?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.module_exists?(slot,module_num)" class="md-nav__link">
+    .module_exists?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.module_mute?(slot,module_num)" class="md-nav__link">
+    .module_mute?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.module_solo?(slot,module_num)" class="md-nav__link">
+    .module_solo?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.new_module(slot,type,name,x,y,z)" class="md-nav__link">
+    .new_module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.open_slot(slot)" class="md-nav__link">
+    .open_slot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.pattern_mute(slot,pattern_num,mute)" class="md-nav__link">
+    .pattern_mute
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.pause(slot)" class="md-nav__link">
+    .pause
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.pitch_to_frequency(in_pitch)" class="md-nav__link">
+    .pitch_to_frequency
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.play(slot)" class="md-nav__link">
+    .play
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.play_from_beginning(slot)" class="md-nav__link">
+    .play_from_beginning
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.remove_module(slot,module_num)" class="md-nav__link">
+    .remove_module
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.repeats?(slot)" class="md-nav__link">
+    .repeats?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.resume(slot)" class="md-nav__link">
+    .resume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.sample_rate" class="md-nav__link">
+    .sample_rate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.sampler_load(slot,sampler_module_num,filename,sample_slot)" class="md-nav__link">
+    .sampler_load
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.send_event(slot,track_num,note,velocity,module_num,ctl,effect,ctl_value)" class="md-nav__link">
+    .send_event
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.set_event_time(slot,timestamp,set)" class="md-nav__link">
+    .set_event_time
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.set_module_curve(slot,module_num,curve_num,curve_data)" class="md-nav__link">
+    .set_module_curve
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.set_repeat(slot,bool)" class="md-nav__link">
+    .set_repeat
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.skip_to_line(slot,line_num)" class="md-nav__link">
+    .skip_to_line
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.start_engine(config,freq,channels,no_debug_output,offline,sample_type,one_thread)" class="md-nav__link">
+    .start_engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.started?" class="md-nav__link">
+    .started?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.stop(slot)" class="md-nav__link">
+    .stop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.stop_engine" class="md-nav__link">
+    .stop_engine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.ticks" class="md-nav__link">
+    .ticks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.ticks_per_second" class="md-nav__link">
+    .ticks_per_second
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.time_map(slot,start_line,len,flags)" class="md-nav__link">
+    .time_map
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.update_input" class="md-nav__link">
+    .update_input
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#SunVox.volume(slot,volume)" class="md-nav__link">
+    .volume
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <div class="doc doc-object doc-type module">
+<h1 id="SunVox" class="doc doc-heading">module <code>SunVox</code>
+<a href="#SunVox" class="headerlink" title="Permanent link">#</a></h1>
+  <div class="doc doc-contents first">
+
+      <div class="doc doc-children">
+
+
+<h2 id="SunVox-constants">Constants<a href="#SunVox-constants" class="headerlink" title="Permanent link">#</a></h2>
+
+<div class="doc doc-object doc-constant">
+<h3 id="SunVox::CURRENT_VERSION_MAJOR" class="doc doc-heading">    <code>
+      CURRENT_VERSION_MAJOR = <span style="font-weight: normal"><code class="highlight language-crystal"><span class="mi">1</span></code></span>
+    </code>
+<a href="#SunVox::CURRENT_VERSION_MAJOR" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+</div>
+
+<div class="doc doc-object doc-constant">
+<h3 id="SunVox::CURRENT_VERSION_MINOR" class="doc doc-heading">    <code>
+      CURRENT_VERSION_MINOR = <span style="font-weight: normal"><code class="highlight language-crystal"><span class="mi">9</span></code></span>
+    </code>
+<a href="#SunVox::CURRENT_VERSION_MINOR" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+</div>
+
+<div class="doc doc-object doc-constant">
+<h3 id="SunVox::CURRENT_VERSION_MINOR2" class="doc doc-heading">    <code>
+      CURRENT_VERSION_MINOR2 = <span style="font-weight: normal"><code class="highlight language-crystal"><span class="mi">6</span></code></span>
+    </code>
+<a href="#SunVox::CURRENT_VERSION_MINOR2" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+</div>
+
+<div class="doc doc-object doc-constant">
+<h3 id="SunVox::DEFAULT_CHANNELS" class="doc doc-heading">    <code>
+      DEFAULT_CHANNELS = <span style="font-weight: normal"><code class="highlight language-crystal"><span class="mi">2</span></code></span>
+    </code>
+<a href="#SunVox::DEFAULT_CHANNELS" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+</div>
+
+<div class="doc doc-object doc-constant">
+<h3 id="SunVox::DEFAULT_CONFIG" class="doc doc-heading">    <code>
+      DEFAULT_CONFIG = <span style="font-weight: normal"><code class="highlight language-crystal"><span class="s2">&quot;&quot;</span></code></span>
+    </code>
+<a href="#SunVox::DEFAULT_CONFIG" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+</div>
+
+<div class="doc doc-object doc-constant">
+<h3 id="SunVox::DEFAULT_FREQ" class="doc doc-heading">    <code>
+      DEFAULT_FREQ = <span style="font-weight: normal"><code class="highlight language-crystal"><span class="mi">44100</span></code></span>
+    </code>
+<a href="#SunVox::DEFAULT_FREQ" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+</div>
+
+<div class="doc doc-object doc-constant">
+<h3 id="SunVox::MAX_SLOTS" class="doc doc-heading">    <code>
+      MAX_SLOTS = <span style="font-weight: normal"><code class="highlight language-crystal"><span class="mi">16</span></code></span>
+    </code>
+<a href="#SunVox::MAX_SLOTS" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+</div>
+
+<div class="doc doc-object doc-constant">
+<h3 id="SunVox::NO_MODULE" class="doc doc-heading">    <code>
+      NO_MODULE = <span style="font-weight: normal"><code class="highlight language-crystal"><span class="o">-</span><span class="mi">1</span></code></span>
+    </code>
+<a href="#SunVox::NO_MODULE" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+</div>
+
+<div class="doc doc-object doc-constant">
+<h3 id="SunVox::OUTPUT_MODULE" class="doc doc-heading">    <code>
+      OUTPUT_MODULE = <span style="font-weight: normal"><code class="highlight language-crystal"><span class="mi">0</span></code></span>
+    </code>
+<a href="#SunVox::OUTPUT_MODULE" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+</div>
+<h2 id="SunVox-class-methods">Class methods<a href="#SunVox-class-methods" class="headerlink" title="Permanent link">#</a></h2>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.close_slot(slot)" class="doc doc-heading">    <code>
+      .close_slot<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.close_slot(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Closes a slot. Raises exception if the slot is closed or something goes wrong.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.connect_module(slot,src,dest)" class="doc doc-heading">    <code>
+      .connect_module<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.connect_module(slot,src,dest)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Connect a module <code>src</code> to a module <code>dest</code>.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.disconnect_module(slot,src,dest)" class="doc doc-heading">    <code>
+      .disconnect_module<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">dest</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.disconnect_module(slot,src,dest)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Disconnect a module <code>src</code> from a module <code>dest</code>.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.end_of_song?(slot)" class="doc doc-heading">    <code>
+      .end_of_song?<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span> <span class="p">:</span> <span class="n">Bool</span></code></span>
+    </code>
+<a href="#SunVox.end_of_song?(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Is the song over and the end has been reached?</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.find_module(slot,name)" class="doc doc-heading">    <code>
+      .find_module<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">name</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.find_module(slot,name)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Find a module in a <code>slot</code> by <code>name</code></p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.find_pattern(slot,name)" class="doc doc-heading">    <code>
+      .find_pattern<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">name</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.find_pattern(slot,name)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Finds the pattern in <code>slot</code> by <code>name</code></p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.frequency_to_pitch(in_freq)" class="doc doc-heading">    <code>
+      .frequency_to_pitch<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">in_freq</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.frequency_to_pitch(in_freq)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_current_line(slot)" class="doc doc-heading">    <code>
+      .get_current_line<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_current_line(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>The current line the playhead is at</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_current_line2(slot)" class="doc doc-heading">    <code>
+      .get_current_line2<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_current_line2(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>THe current line the play head is at in a fractional form (not sure how this works) <a href="https://warmplace.ru/soft/sunvox/sunvox_lib.php#sv_get_current_line2">https://warmplace.ru/soft/sunvox/sunvox_lib.php#sv_get_current_line2</a></p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_current_signal_level(slot,channel)" class="doc doc-heading">    <code>
+      .get_current_signal_level<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">channel</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_current_signal_level(slot,channel)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Gets the current output signal level</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_log(bytes)" class="doc doc-heading">    <code>
+      .get_log<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">bytes</span> <span class="p">:</span> <span class="n">Int32</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_log(bytes)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Gets the debug log messages</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_module_color(slot,module_num)" class="doc doc-heading">    <code>
+      .get_module_color<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_module_color(slot,module_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Get the color of a module in 0xBBGGRR format.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_module_ctl_name(slot,module_num,ctl_num)" class="doc doc-heading">    <code>
+      .get_module_ctl_name<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">,</span> <span class="n">ctl_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_module_ctl_name(slot,module_num,ctl_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Get the name of a module's controller.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_module_ctl_value(slot,module_num,ctl_num,scaled)" class="doc doc-heading">    <code>
+      .get_module_ctl_value<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">,</span> <span class="n">ctl_num</span><span class="p">,</span> <span class="n">scaled</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_module_ctl_value(slot,module_num,ctl_num,scaled)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Get the value of a modules controller.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_module_curve(slot,module_num,curve_num,length)" class="doc doc-heading">    <code>
+      .get_module_curve<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">,</span> <span class="n">curve_num</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_module_curve(slot,module_num,curve_num,length)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Get the curve from a module</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_module_finetune(slot,module_num)" class="doc doc-heading">    <code>
+      .get_module_finetune<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_module_finetune(slot,module_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Get module's finetune values.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_module_flags(slot,module_num)" class="doc doc-heading">    <code>
+      .get_module_flags<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_module_flags(slot,module_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Get the flags set on a module</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_module_inputs(slot,module_num)" class="doc doc-heading">    <code>
+      .get_module_inputs<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_module_inputs(slot,module_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>A list of all the inputs a module has.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_module_inputs_number(slot,module_num)" class="doc doc-heading">    <code>
+      .get_module_inputs_number<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_module_inputs_number(slot,module_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>The number of module inputs.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_module_name(slot,name)" class="doc doc-heading">    <code>
+      .get_module_name<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">name</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_module_name(slot,name)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Gets the name of a module.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_module_outputs(slot,module_num)" class="doc doc-heading">    <code>
+      .get_module_outputs<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_module_outputs(slot,module_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>A list of all the outputs a module has.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_module_outputs_number(slot,module_num)" class="doc doc-heading">    <code>
+      .get_module_outputs_number<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_module_outputs_number(slot,module_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>The number of module outputs.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_module_scope(slot,module_num,channel,samples_to_read)" class="doc doc-heading">    <code>
+      .get_module_scope<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">samples_to_read</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_module_scope(slot,module_num,channel,samples_to_read)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Get the raw audio output values for a module.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_module_xy(slot,module_num)" class="doc doc-heading">    <code>
+      .get_module_xy<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_module_xy(slot,module_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Get the x, y positon of a module.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_number_of_module_ctls(slot,module_num)" class="doc doc-heading">    <code>
+      .get_number_of_module_ctls<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_number_of_module_ctls(slot,module_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Get the number of controllers a module has.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_number_of_modules(slot)" class="doc doc-heading">    <code>
+      .get_number_of_modules<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_number_of_modules(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>The number of modules in <code>slot</code></p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_number_of_patterns(slot)" class="doc doc-heading">    <code>
+      .get_number_of_patterns<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_number_of_patterns(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Gets the number of patterns in a <code>slot</code></p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_pattern_data(slot,pattern_num)" class="doc doc-heading">    <code>
+      .get_pattern_data<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">pattern_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_pattern_data(slot,pattern_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Get the event data, seperated by tracks.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_pattern_lines(slot,pattern_num)" class="doc doc-heading">    <code>
+      .get_pattern_lines<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">pattern_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_pattern_lines(slot,pattern_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Gets the number of lines in a pattern</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_pattern_name(slot,pattern_num)" class="doc doc-heading">    <code>
+      .get_pattern_name<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">pattern_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_pattern_name(slot,pattern_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Gets the pattern's name</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_pattern_tracks(slot,pattern_num)" class="doc doc-heading">    <code>
+      .get_pattern_tracks<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">pattern_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_pattern_tracks(slot,pattern_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Get the number of track in the pattern.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_pattern_x(slot,pat_num)" class="doc doc-heading">    <code>
+      .get_pattern_x<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">pat_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_pattern_x(slot,pat_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Gets the pattern's starting line.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_pattern_y(slot,pat_num)" class="doc doc-heading">    <code>
+      .get_pattern_y<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">pat_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_pattern_y(slot,pat_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Gets the pattern's height.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_song_bpm(slot)" class="doc doc-heading">    <code>
+      .get_song_bpm<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_song_bpm(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Gets the BPM of the song in <code>slot</code></p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_song_length(slot)" class="doc doc-heading">    <code>
+      .get_song_length<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_song_length(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Get the length of the song in seconds</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_song_length_frames(slot)" class="doc doc-heading">    <code>
+      .get_song_length_frames<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_song_length_frames(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>The total length in ticks of the song in <code>slot</code>s.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_song_length_lines(slot)" class="doc doc-heading">    <code>
+      .get_song_length_lines<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_song_length_lines(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>The total song length in lines of <code>slot</code>.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_song_name(slot)" class="doc doc-heading">    <code>
+      .get_song_name<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_song_name(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Gets the name of the song in <code>slot</code></p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.get_song_tpl(slot)" class="doc doc-heading">    <code>
+      .get_song_tpl<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.get_song_tpl(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Number of lines executed in a second in the song.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.load(slot,filename)" class="doc doc-heading">    <code>
+      .load<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">filename</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.load(slot,filename)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Loads a filename into a slot.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.load_module(slot,filename,x,y,z)" class="doc doc-heading">    <code>
+      .load_module<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.load_module(slot,filename,x,y,z)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Load a module from a file. File can be sunsynth, xi, wav, or aiff.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.module_bypass?(slot,module_num)" class="doc doc-heading">    <code>
+      .module_bypass?<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.module_bypass?(slot,module_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.module_effect?(slot,module_num)" class="doc doc-heading">    <code>
+      .module_effect?<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.module_effect?(slot,module_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.module_exists?(slot,module_num)" class="doc doc-heading">    <code>
+      .module_exists?<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.module_exists?(slot,module_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.module_mute?(slot,module_num)" class="doc doc-heading">    <code>
+      .module_mute?<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.module_mute?(slot,module_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.module_solo?(slot,module_num)" class="doc doc-heading">    <code>
+      .module_solo?<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.module_solo?(slot,module_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.new_module(slot,type,name,x,y,z)" class="doc doc-heading">    <code>
+      .new_module<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="k">type</span> <span class="p">:</span> <a href="SunVox/ModuleType.html#SunVox::ModuleType">ModuleType</a><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.new_module(slot,type,name,x,y,z)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Create a new module in <code>slot</code>. Returns the number of the new module.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.open_slot(slot)" class="doc doc-heading">    <code>
+      .open_slot<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.open_slot(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Opens a slot</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.pattern_mute(slot,pattern_num,mute)" class="doc doc-heading">    <code>
+      .pattern_mute<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">pattern_num</span><span class="p">,</span> <span class="n">mute</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.pattern_mute(slot,pattern_num,mute)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Mute/Unmute the pattern.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.pause(slot)" class="doc doc-heading">    <code>
+      .pause<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.pause(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Pauses the playback at the current line.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.pitch_to_frequency(in_pitch)" class="doc doc-heading">    <code>
+      .pitch_to_frequency<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">in_pitch</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.pitch_to_frequency(in_pitch)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.play(slot)" class="doc doc-heading">    <code>
+      .play<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.play(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Plays the current song from the current line.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.play_from_beginning(slot)" class="doc doc-heading">    <code>
+      .play_from_beginning<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.play_from_beginning(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Plays the current song from the beginning.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.remove_module(slot,module_num)" class="doc doc-heading">    <code>
+      .remove_module<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.remove_module(slot,module_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Remove the module <code>module_num</code> in <code>slot</code>.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.repeats?(slot)" class="doc doc-heading">    <code>
+      .repeats?<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span> <span class="p">:</span> <span class="n">Bool</span></code></span>
+    </code>
+<a href="#SunVox.repeats?(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Returns whether or not a song will repeat when the end is reached.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.resume(slot)" class="doc doc-heading">    <code>
+      .resume<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.resume(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Resumes playback from a paused state.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.sample_rate" class="doc doc-heading">    <code>
+      .sample_rate<span style="font-weight: normal"><code class="highlight language-crystal"></code></span>
+    </code>
+<a href="#SunVox.sample_rate" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.sampler_load(slot,sampler_module_num,filename,sample_slot)" class="doc doc-heading">    <code>
+      .sampler_load<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">sampler_module_num</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">sample_slot</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.sampler_load(slot,sampler_module_num,filename,sample_slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Loads a file into a sampler. File must be xi, wav, or aiff.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.send_event(slot,track_num,note,velocity,module_num,ctl,effect,ctl_value)" class="doc doc-heading">    <code>
+      .send_event<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">track_num</span><span class="p">,</span> <span class="n">note</span> <span class="p">:</span> <span class="n">Int32</span><span class="p">,</span> <span class="n">velocity</span><span class="p">,</span> <span class="n">module_num</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">ctl</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">effect</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ctl_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.send_event(slot,track_num,note,velocity,module_num,ctl,effect,ctl_value)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Sends an event to SunVox. Can be used to send notes, change ctl values, or set note effects. A <code>module_num</code> of <code>0</code> causes no effect, so any module you would like to actually use must have <code>1</code> added to it</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.send_event(slot,track_num,event)" class="doc doc-heading">    <code>
+      .send_event<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">track_num</span><span class="p">,</span> <span class="n">event</span> <span class="p">:</span> <a href="SunVox/Event.html#SunVox::Event">Event</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.send_event(slot,track_num,event)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Sends an event to SunVox. Can be used to send notes, change ctl values, or set note effects. A <code>module_num</code> of <code>0</code> causes no effect, so any module you would like to actually use must have <code>1</code> added to it</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.send_event(slot,track_num,note,velocity,module_num,ctl,effect,ctl_value)" class="doc doc-heading">    <code>
+      .send_event<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">track_num</span><span class="p">,</span> <span class="n">note</span> <span class="p">:</span> <a href="SunVox/Note.html#SunVox::Note">Note</a><span class="p">,</span> <span class="n">velocity</span><span class="p">,</span> <span class="n">module_num</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">ctl</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">effect</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ctl_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.send_event(slot,track_num,note,velocity,module_num,ctl,effect,ctl_value)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Sends an event to SunVox. Can be used to send notes, change ctl values, or set note effects. A <code>module_num</code> of <code>0</code> causes no effect, so any module you would like to actually use must have <code>1</code> added to it</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.set_event_time(slot,timestamp,set)" class="doc doc-heading">    <code>
+      .set_event_time<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">timestamp</span> <span class="p">:</span> <span class="n">UInt32</span> <span class="o">=</span> <span class="err">0</span><span class="n">_u32</span><span class="p">,</span> <span class="n">set</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.set_event_time(slot,timestamp,set)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Changes how SunVox processes <a href="#SunVox.send_event(slot,track_num,note,velocity,module_num,ctl,effect,ctl_value)"><code>send_event</code></a>. Instead of playing the event as soon as it's called, this allows <a href="#SunVox.send_event(slot,track_num,note,velocity,module_num,ctl,effect,ctl_value)"><code>send_event</code></a> to be delayed by a number of ticks. When setting <code>set</code> to <code>false</code> it will reset the timing method back to immediate. When used <code>timestamp</code> should generally be <code>SunVox.ticks + (SunVox.ticks_per_second/1000 * delay_milliseconds)</code></p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.set_module_curve(slot,module_num,curve_num,curve_data)" class="doc doc-heading">    <code>
+      .set_module_curve<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">module_num</span><span class="p">,</span> <span class="n">curve_num</span><span class="p">,</span> <span class="n">curve_data</span> <span class="p">:</span> <span class="n">Slice</span><span class="p">(</span><span class="n">Float32</span><span class="p">))</span></code></span>
+    </code>
+<a href="#SunVox.set_module_curve(slot,module_num,curve_num,curve_data)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Set the curve data of a module</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.set_repeat(slot,bool)" class="doc doc-heading">    <code>
+      .set_repeat<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">bool</span><span class="p">)</span> <span class="p">:</span> <span class="n">Nil</span></code></span>
+    </code>
+<a href="#SunVox.set_repeat(slot,bool)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Sets whether or not a song will repeat when the end is reached.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.skip_to_line(slot,line_num)" class="doc doc-heading">    <code>
+      .skip_to_line<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">line_num</span> <span class="p">:</span> <span class="n">Int32</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.skip_to_line(slot,line_num)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Jumps the current position of the playhead to a line number.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.start_engine(config,freq,channels,no_debug_output,offline,sample_type,one_thread)" class="doc doc-heading">    <code>
+      .start_engine<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">config</span> <span class="o">=</span> <span class="no">DEFAULT_CONFIG</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="no">DEFAULT_FREQ</span><span class="p">,</span> <span class="n">channels</span> <span class="o">=</span> <span class="no">DEFAULT_CHANNELS</span><span class="p">,</span> <span class="n">no_debug_output</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">offline</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="n">sample_type</span> <span class="o">=</span> <span class="n">SampleType</span><span class="o">::</span><span class="n">Int16</span><span class="p">,</span> <span class="n">one_thread</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.start_engine(config,freq,channels,no_debug_output,offline,sample_type,one_thread)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Starts up the SunVox Engine. Hooks <code>at_exit</code> to ensure <a href="#SunVox.stop_engine"><code>stop_engine</code></a> is run on close</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.started?" class="doc doc-heading">    <code>
+      .started?<span style="font-weight: normal"><code class="highlight language-crystal"></code></span>
+    </code>
+<a href="#SunVox.started?" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.stop(slot)" class="doc doc-heading">    <code>
+      .stop<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.stop(slot)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Stops the current song from playing. 2 calls will stop all the synths and sounds.</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.stop_engine" class="doc doc-heading">    <code>
+      .stop_engine<span style="font-weight: normal"><code class="highlight language-crystal"></code></span>
+    </code>
+<a href="#SunVox.stop_engine" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p><code>Shuts down the engine.</code></p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.ticks" class="doc doc-heading">    <code>
+      .ticks<span style="font-weight: normal"> <code class="highlight language-crystal"><span class="p">:</span> <span class="n">UInt32</span></code></span>
+    </code>
+<a href="#SunVox.ticks" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>The current tick</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.ticks_per_second" class="doc doc-heading">    <code>
+      .ticks_per_second<span style="font-weight: normal"> <code class="highlight language-crystal"><span class="p">:</span> <span class="n">UInt32</span></code></span>
+    </code>
+<a href="#SunVox.ticks_per_second" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>How many ticks happen per second</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.time_map(slot,start_line,len,flags)" class="doc doc-heading">    <code>
+      .time_map<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">start_line</span><span class="p">,</span> <span class="n">len</span><span class="p">,</span> <span class="n">flags</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.time_map(slot,start_line,len,flags)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Honestly, no idea how this one works. Seems like it should be useful if someone who isn't me wants to figure it out lol: <a href="https://warmplace.ru/soft/sunvox/sunvox_lib.php#sv_get_time_map">https://warmplace.ru/soft/sunvox/sunvox_lib.php#sv_get_time_map</a> Good Luck!</p>  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.update_input" class="doc doc-heading">    <code>
+      .update_input<span style="font-weight: normal"><code class="highlight language-crystal"></code></span>
+    </code>
+<a href="#SunVox.update_input" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="SunVox.volume(slot,volume)" class="doc doc-heading">    <code>
+      .volume<span style="font-weight: normal"><code class="highlight language-crystal"><span class="p">(</span><span class="n">slot</span> <span class="p">:</span> <a href="SunVox/Slot.html#SunVox::Slot">Slot</a><span class="p">,</span> <span class="n">volume</span> <span class="p">:</span> <span class="n">UInt8</span><span class="p">)</span></code></span>
+    </code>
+<a href="#SunVox.volume(slot,volume)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+<p>Sets the output volume of the slot.</p>  </div>
+
+</div>      </div>
+  </div>
+
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="EXAMPLES.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Examples" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Examples
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="SunVox/Event.html" class="md-footer__link md-footer__link--next" aria-label="Next: Event" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Event
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.76f349be.min.js"></script>
+      
+    
+  </body>
+</html>

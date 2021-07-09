@@ -1,0 +1,828 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://libsunvox.github.io/EXAMPLES.html">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+    
+    
+      
+        <title>Examples - libsunvox</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ca7ac06f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.f1a3b89f.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="css/mkdocstrings.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="libsunvox" class="md-header__button md-logo" aria-label="libsunvox" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            libsunvox
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Examples
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/sol-vin/libsunvox/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="libsunvox" class="md-nav__button md-logo" aria-label="libsunvox" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    libsunvox
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/sol-vin/libsunvox/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="BASICS.html" class="md-nav__link">
+        Basics
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="EXAMPLES.html" class="md-nav__link md-nav__link--active">
+        Examples
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="SunVox.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
+        
+          API
+        </a>
+      </label>
+      <nav class="md-nav" aria-label="API" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          
+            <a href="SunVox.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
+          
+            API
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Event.html" class="md-nav__link">
+        Event
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/ModuleType.html" class="md-nav__link">
+        ModuleType
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      <label class="md-nav__link" for="__nav_4_3">
+        <span class="md-nav__icon md-icon"></span>
+        
+          <a href="SunVox/Modules.html" class="md-nav__link"
+            style="margin: initial; padding: initial; pointer-events: initial">
+        
+          Modules
+        </a>
+      </label>
+      <nav class="md-nav" aria-label="Modules" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          
+            <a href="SunVox/Modules.html" class="md-nav__link"
+              style="margin: initial; padding: initial; pointer-events: initial">
+          
+            Modules
+          </a>
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Modules/Effects.html" class="md-nav__link">
+        Effects
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Modules/Misc.html" class="md-nav__link">
+        Misc
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Modules/Synths.html" class="md-nav__link">
+        Synths
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Note.html" class="md-nav__link">
+        Note
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/SampleType.html" class="md-nav__link">
+        SampleType
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Scale.html" class="md-nav__link">
+        Scale
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Scales.html" class="md-nav__link">
+        Scales
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SunVox/Slot.html" class="md-nav__link">
+        Slot
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/sol-vin/libsunvox/blob/master/docs/EXAMPLES.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>Examples</h1>
+                
+                <p>How to time events using <code>set_event_time</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;libsunvox&quot;</span>
+
+<span class="n">SunVox</span><span class="o">.</span><span class="n">start_engine</span><span class="p">(</span><span class="ss">no_debug_output</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="ss">one_thread</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+<span class="n">slot</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">open_slot</span><span class="p">(</span><span class="n">SunVox</span><span class="o">::</span><span class="n">Slot</span><span class="o">::</span><span class="n">One</span><span class="p">)</span>
+
+<span class="n">fm_synth_number</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">new_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Modules</span><span class="o">::</span><span class="n">Synths</span><span class="o">::</span><span class="no">FM</span><span class="p">)</span>
+
+<span class="c1"># Connect the module to the output</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">connect_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">fm_synth_number</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="no">OUTPUT_MODULE</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="s2">&quot;Sending Events&quot;</span>
+<span class="n">tps</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">ticks_per_second</span>
+<span class="n">ticks</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">ticks</span> <span class="o">+</span> <span class="n">tps</span>
+
+<span class="c1"># Send events</span>
+<span class="mi">10</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+  <span class="mi">20</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+    <span class="n">SunVox</span><span class="o">.</span><span class="n">set_event_time</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">ticks</span> <span class="o">+=</span> <span class="p">(</span><span class="n">tps</span><span class="o">*</span><span class="mf">0.25</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span><span class="p">)</span>
+    <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">C5</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fm_synth_number</span><span class="p">)</span>
+  <span class="k">end</span>
+  <span class="n">SunVox</span><span class="o">.</span><span class="n">set_event_time</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">ticks</span> <span class="o">+=</span> <span class="n">tps</span><span class="p">)</span>
+  <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">Off</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">fm_synth_number</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Playing Scales</p>
+<div class="highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;libsunvox&quot;</span>
+
+<span class="n">SunVox</span><span class="o">.</span><span class="n">start_engine</span><span class="p">(</span><span class="ss">no_debug_output</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="ss">one_thread</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+<span class="n">slot</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">open_slot</span><span class="p">(</span><span class="n">SunVox</span><span class="o">::</span><span class="n">Slot</span><span class="o">::</span><span class="n">One</span><span class="p">)</span>
+
+<span class="n">fm_synth_number</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">new_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Modules</span><span class="o">::</span><span class="n">Synths</span><span class="o">::</span><span class="no">GENERATOR</span><span class="p">)</span>
+
+<span class="c1"># Connect the module to the output</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">connect_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">fm_synth_number</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="no">OUTPUT_MODULE</span><span class="p">)</span>
+
+<span class="n">scale</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Scales</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">C3</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Scales</span><span class="o">::</span><span class="no">HEXATONIC</span><span class="p">)</span>
+<span class="nb">pp</span> <span class="n">scale</span>
+
+<span class="n">tps</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">ticks_per_second</span>
+<span class="n">starting_ticks</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">ticks</span>
+<span class="n">ticks</span> <span class="o">=</span> <span class="n">starting_ticks</span>
+
+<span class="c1"># Send events</span>
+<span class="mi">10</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+  <span class="n">scale</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">note</span><span class="o">|</span>
+    <span class="n">SunVox</span><span class="o">.</span><span class="n">set_event_time</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">ticks</span> <span class="o">+=</span> <span class="p">(</span><span class="n">tps</span><span class="o">*</span><span class="mf">0.25</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span><span class="p">)</span>
+    <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">note</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fm_synth_number</span><span class="p">)</span>
+  <span class="k">end</span>
+  <span class="n">SunVox</span><span class="o">.</span><span class="n">set_event_time</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">ticks</span> <span class="o">+=</span> <span class="n">tps</span><span class="p">)</span>
+  <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">Off</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fm_synth_number</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="nb">sleep</span>
+</code></pre></div>
+<p>Simple Instrument
+<div class="highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;libsunvox&quot;</span>
+
+<span class="n">SunVox</span><span class="o">.</span><span class="n">start_engine</span><span class="p">(</span><span class="ss">no_debug_output</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="ss">one_thread</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+<span class="n">slot</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">open_slot</span><span class="p">(</span><span class="n">SunVox</span><span class="o">::</span><span class="n">Slot</span><span class="o">::</span><span class="n">One</span><span class="p">)</span>
+
+<span class="n">generator_number</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">new_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Modules</span><span class="o">::</span><span class="n">Synths</span><span class="o">::</span><span class="no">GENERATOR</span><span class="p">)</span>
+<span class="n">reverb_number</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">new_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Modules</span><span class="o">::</span><span class="n">Effects</span><span class="o">::</span><span class="no">REVERB</span><span class="p">)</span>
+
+<span class="c1"># Connect the module to the output</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">connect_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">generator_number</span><span class="p">,</span> <span class="n">reverb_number</span><span class="p">)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">connect_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">reverb_number</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="no">OUTPUT_MODULE</span><span class="p">)</span>
+
+<span class="c1"># Set up the sound settings</span>
+
+<span class="c1"># Change waveform to noise</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator_number</span><span class="p">,</span> <span class="ss">ctl</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">ctl_value</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="mi">100</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+  <span class="n">attack_low</span> <span class="o">=</span> <span class="mh">0xb80</span>
+  <span class="n">attack_high</span> <span class="o">=</span> <span class="mh">0x1540</span>
+
+  <span class="n">release_low</span> <span class="o">=</span> <span class="mh">0x31c0</span>
+  <span class="n">release_high</span> <span class="o">=</span> <span class="mh">0x6000</span>
+
+  <span class="n">attack</span> <span class="o">=</span> <span class="n">Random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">attack_low</span><span class="o">..</span><span class="n">attack_high</span><span class="p">)</span>
+  <span class="n">release</span> <span class="o">=</span> <span class="n">Random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">release_low</span><span class="o">..</span><span class="n">release_high</span><span class="p">)</span>
+  <span class="n">note</span> <span class="o">=</span> <span class="n">Random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">C2</span><span class="o">.</span><span class="n">to_i</span><span class="o">..</span><span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">C4</span><span class="o">.</span><span class="n">to_i</span><span class="p">)</span>
+
+
+  <span class="c1"># Change Attack</span>
+  <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator_number</span><span class="p">,</span> <span class="ss">ctl</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="ss">ctl_value</span><span class="p">:</span> <span class="n">attack</span><span class="p">)</span>
+  <span class="c1"># Change Release</span>
+  <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator_number</span><span class="p">,</span> <span class="ss">ctl</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="ss">ctl_value</span><span class="p">:</span> <span class="n">release</span><span class="p">)</span>
+
+  <span class="c1"># Send a note</span>
+  <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">note</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator_number</span><span class="p">)</span>
+  <span class="nb">sleep</span> <span class="mf">0.3</span>
+  <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">Off</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator_number</span><span class="p">)</span>
+
+  <span class="nb">sleep</span> <span class="mi">3</span>
+<span class="k">end</span>
+
+
+
+<span class="nb">sleep</span>
+</code></pre></div></p>
+<p>Bad Generative Music Example
+<div class="highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;libsunvox&quot;</span>
+
+<span class="n">SunVox</span><span class="o">.</span><span class="n">start_engine</span><span class="p">(</span><span class="ss">config</span><span class="p">:</span> <span class="s2">&quot;audiodevice=hw:0,0&quot;</span><span class="p">,</span> <span class="ss">no_debug_output</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="ss">one_thread</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+<span class="n">slot</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">open_slot</span><span class="p">(</span><span class="n">SunVox</span><span class="o">::</span><span class="n">Slot</span><span class="o">::</span><span class="n">One</span><span class="p">)</span>
+
+<span class="n">generator</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">new_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Modules</span><span class="o">::</span><span class="n">Synths</span><span class="o">::</span><span class="no">GENERATOR</span><span class="p">)</span>
+<span class="n">reverb</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">new_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Modules</span><span class="o">::</span><span class="n">Effects</span><span class="o">::</span><span class="no">REVERB</span><span class="p">)</span>
+<span class="n">drum_synth</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">new_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Modules</span><span class="o">::</span><span class="n">Synths</span><span class="o">::</span><span class="no">DRUM_SYNTH</span><span class="p">)</span>
+
+<span class="c1"># Connect the module to the output</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">connect_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">generator</span><span class="p">,</span> <span class="n">reverb</span><span class="p">)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">connect_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">reverb</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="no">OUTPUT_MODULE</span><span class="p">)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">connect_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">drum_synth</span><span class="p">,</span> <span class="n">reverb</span><span class="p">)</span>
+
+<span class="c1"># Set up the sound settings</span>
+
+<span class="c1"># Change waveform to noise</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">,</span> <span class="ss">ctl</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">ctl_value</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1"># Change Attack and release</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">,</span> <span class="ss">ctl</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="ss">ctl_value</span><span class="p">:</span> <span class="mh">0x1000</span><span class="p">)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">,</span> <span class="ss">ctl</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="ss">ctl_value</span><span class="p">:</span> <span class="mh">0x1000</span><span class="p">)</span>
+
+<span class="bp">spawn</span> <span class="k">do</span>
+  <span class="mi">1_000_000</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+      <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">C5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">drum_synth</span><span class="p">)</span>
+      <span class="nb">sleep</span> <span class="mf">0.25</span>
+      <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">C5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">drum_synth</span><span class="p">)</span>
+      <span class="nb">sleep</span> <span class="mf">0.25</span>
+    <span class="k">else</span>
+      <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">D5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">drum_synth</span><span class="p">)</span>
+      <span class="nb">sleep</span> <span class="mf">0.5</span>
+    <span class="k">end</span>
+
+    <span class="mi">2</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+      <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">FSharp1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">drum_synth</span><span class="p">)</span>
+      <span class="nb">sleep</span> <span class="mf">0.5</span>
+    <span class="k">end</span>
+
+    <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">FSharp1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">drum_synth</span><span class="p">)</span>
+    <span class="nb">sleep</span> <span class="mf">0.25</span>
+    <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">FSharp1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">drum_synth</span><span class="p">)</span>
+    <span class="nb">sleep</span> <span class="mf">0.25</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="bp">spawn</span> <span class="k">do</span>
+  <span class="n">scale</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Scales</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">F3</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Scales</span><span class="o">::</span><span class="no">MINOR_HEXATONIC</span><span class="p">)</span>
+  <span class="n">scale_size</span> <span class="o">=</span> <span class="n">scale</span><span class="o">.</span><span class="n">size</span>
+  <span class="n">scale</span> <span class="o">=</span> <span class="n">scale</span> <span class="o">+</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Scales</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">F4</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Scales</span><span class="o">::</span><span class="no">MINOR_HEXATONIC</span><span class="p">)</span>
+  <span class="mi">1_000_000</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+
+    <span class="mi">3</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span>
+      <span class="n">note</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="n">scale_size</span><span class="p">)</span>
+      <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">[</span><span class="n">note</span><span class="o">]</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span>
+      <span class="nb">sleep</span> <span class="mf">0.25</span><span class="o">/</span><span class="mi">2</span>
+      <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">scale</span><span class="o">[</span><span class="n">note</span> <span class="o">+</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span>
+      <span class="nb">sleep</span> <span class="mf">0.25</span><span class="o">/</span><span class="mi">2</span>
+      <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">scale</span><span class="o">[</span><span class="n">note</span> <span class="o">+</span> <span class="mi">4</span><span class="o">]</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span>
+      <span class="nb">sleep</span> <span class="mf">0.75</span>
+
+      <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">Off</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span>
+      <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">Off</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span>
+      <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">Off</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span>
+      <span class="nb">sleep</span> <span class="mi">1</span>
+    <span class="k">end</span>
+
+    <span class="n">note</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="n">scale_size</span><span class="p">)</span>
+    <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">scale</span><span class="o">[</span><span class="n">note</span><span class="o">]</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span>
+    <span class="nb">sleep</span> <span class="mi">1</span>
+    <span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">Off</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span>
+    <span class="nb">sleep</span> <span class="mi">1</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="nb">sleep</span>
+</code></pre></div></p>
+<p>Make a live vocoder - <a href="https://youtu.be/PoH34XjlLLE">https://youtu.be/PoH34XjlLLE</a></p>
+<div class="highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;libsunvox&quot;</span>
+
+<span class="c1"># Set the audiodevice and audiodevice_in to your device then speak into your microphone :)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">start_engine</span><span class="p">(</span><span class="ss">config</span><span class="p">:</span> <span class="s2">&quot;audiodriver=alsa|audiodevice=hw:0,0|audiodevice_in=hw:2,0&quot;</span><span class="p">,</span> <span class="ss">no_debug_output</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="ss">one_thread</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+<span class="n">slot</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">open_slot</span><span class="p">(</span><span class="n">SunVox</span><span class="o">::</span><span class="n">Slot</span><span class="o">::</span><span class="n">One</span><span class="p">)</span>
+
+<span class="n">input</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">new_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Modules</span><span class="o">::</span><span class="n">Synths</span><span class="o">::</span><span class="no">INPUT</span><span class="p">)</span>
+<span class="n">generator</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">new_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Modules</span><span class="o">::</span><span class="n">Synths</span><span class="o">::</span><span class="no">GENERATOR</span><span class="p">)</span>
+<span class="n">carrier</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">new_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Modules</span><span class="o">::</span><span class="n">Effects</span><span class="o">::</span><span class="no">AMPLIFIER</span><span class="p">)</span>
+<span class="n">modulator</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">new_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Modules</span><span class="o">::</span><span class="n">Effects</span><span class="o">::</span><span class="no">AMPLIFIER</span><span class="p">)</span>
+<span class="n">vocoder</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">load_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="s2">&quot;./rsrc/vocoder.sunsynth&quot;</span><span class="p">)</span>
+
+<span class="c1"># Connect the module to the output</span>
+
+<span class="n">SunVox</span><span class="o">.</span><span class="n">connect_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">input</span><span class="p">,</span> <span class="n">modulator</span><span class="p">)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">connect_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">generator</span><span class="p">,</span> <span class="n">carrier</span><span class="p">)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">connect_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">carrier</span><span class="p">,</span> <span class="n">vocoder</span><span class="p">)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">connect_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">modulator</span><span class="p">,</span> <span class="n">vocoder</span><span class="p">)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">connect_module</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="n">vocoder</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="no">OUTPUT_MODULE</span><span class="p">)</span>
+
+<span class="n">SunVox</span><span class="o">.</span><span class="n">update_input</span>
+
+<span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">,</span> <span class="ss">ctl</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">ctl_value</span><span class="p">:</span> <span class="mh">0x1</span><span class="p">)</span>
+
+
+<span class="c1"># Set carrier controls</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">carrier</span><span class="p">,</span> <span class="ss">ctl</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">ctl_value</span><span class="p">:</span> <span class="mh">0x4000</span><span class="p">)</span>
+
+<span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">carrier</span><span class="p">,</span> <span class="ss">ctl</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">ctl_value</span><span class="p">:</span> <span class="mh">0x8000</span><span class="p">)</span>
+
+<span class="c1"># Set modulator controls</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">modulator</span><span class="p">,</span> <span class="ss">ctl</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">ctl_value</span><span class="p">:</span> <span class="mh">0x69c0</span><span class="p">)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">None</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">modulator</span><span class="p">,</span> <span class="ss">ctl</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="ss">ctl_value</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">D1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">D2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">D3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">G4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">send_event</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">SunVox</span><span class="o">::</span><span class="n">Note</span><span class="o">::</span><span class="n">D5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">generator</span><span class="p">)</span>
+
+<span class="nb">sleep</span>
+</code></pre></div>
+<p>Live monitor output levels
+<div class="highlight"><pre><span></span><code><span class="k">require</span> <span class="s2">&quot;crysterm&quot;</span> <span class="c1"># github: crystallabs/crysterm</span>
+<span class="k">require</span> <span class="s2">&quot;libsunvox&quot;</span>
+
+
+<span class="k">include</span> <span class="n">Crysterm</span>
+
+<span class="no">COLORS</span> <span class="o">=</span> <span class="o">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="o">]</span>
+
+<span class="n">SunVox</span><span class="o">.</span><span class="n">start_engine</span><span class="p">(</span><span class="ss">config</span><span class="p">:</span> <span class="s2">&quot;audiodriver=alsa|audiodevice=hw:0,0|audiodevice_in=hw:2,0&quot;</span><span class="p">,</span> <span class="ss">no_debug_output</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="ss">one_thread</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+<span class="c1"># Opens a slot for us to use</span>
+<span class="n">slot</span> <span class="o">=</span> <span class="n">SunVox</span><span class="o">.</span><span class="n">open_slot</span><span class="p">(</span><span class="n">SunVox</span><span class="o">::</span><span class="n">Slot</span><span class="o">::</span><span class="n">Zero</span><span class="p">)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">slot</span><span class="p">,</span> <span class="s2">&quot;./rsrc/song.sunvox&quot;</span><span class="p">)</span>
+<span class="n">SunVox</span><span class="o">.</span><span class="n">play_from_beginning</span><span class="p">(</span><span class="n">slot</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="n">s</span> <span class="p">:</span> <span class="n">Screen</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">fg</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">char</span> <span class="o">=</span> <span class="sc">&#39; &#39;</span><span class="p">)</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">fill_region</span><span class="p">(</span><span class="n">Widget</span><span class="o">.</span><span class="n">sattr</span><span class="p">(</span><span class="n">Namespace</span><span class="o">::</span><span class="n">Style</span><span class="o">.</span><span class="n">new</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">bg</span><span class="p">),</span> <span class="n">char</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">draw_region</span><span class="p">(</span><span class="n">s</span> <span class="p">:</span> <span class="n">Screen</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">fg</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">bg</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">char</span> <span class="o">=</span> <span class="sc">&#39; &#39;</span><span class="p">)</span>
+  <span class="n">s</span><span class="o">.</span><span class="n">fill_region</span><span class="p">(</span><span class="n">Widget</span><span class="o">.</span><span class="n">sattr</span><span class="p">(</span><span class="n">Namespace</span><span class="o">::</span><span class="n">Style</span><span class="o">.</span><span class="n">new</span><span class="p">,</span> <span class="n">fg</span><span class="p">,</span> <span class="n">bg</span><span class="p">),</span> <span class="n">char</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="n">s</span> <span class="p">:</span> <span class="n">Screen</span><span class="p">)</span>
+  <span class="n">draw_region</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">draw_frame</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+  <span class="n">output_level</span> <span class="o">=</span> <span class="p">(</span><span class="n">SunVox</span><span class="o">.</span><span class="n">get_current_signal_level</span><span class="p">(</span><span class="n">SunVox</span><span class="o">::</span><span class="n">Slot</span><span class="o">::</span><span class="n">Zero</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="mf">100.0</span><span class="p">)</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+  <span class="n">output_color</span> <span class="o">=</span> <span class="no">COLORS</span><span class="o">[</span><span class="p">(</span><span class="n">COLORS</span><span class="o">.</span><span class="n">size</span><span class="o">*</span><span class="n">output_level</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span><span class="o">]</span>
+  <span class="n">draw_region</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">width</span><span class="o">*</span><span class="n">output_level</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span> <span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="ss">bg</span><span class="p">:</span> <span class="n">output_color</span><span class="p">)</span>
+
+  <span class="n">output_level</span> <span class="o">=</span><span class="p">(</span><span class="n">SunVox</span><span class="o">.</span><span class="n">get_current_signal_level</span><span class="p">(</span><span class="n">SunVox</span><span class="o">::</span><span class="n">Slot</span><span class="o">::</span><span class="n">Zero</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mf">100.0</span><span class="p">)</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
+  <span class="n">output_color</span> <span class="o">=</span> <span class="no">COLORS</span><span class="o">[</span><span class="p">(</span><span class="n">COLORS</span><span class="o">.</span><span class="n">size</span><span class="o">*</span><span class="n">output_level</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span><span class="o">]</span>
+  <span class="n">draw_region</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">width</span><span class="o">*</span><span class="n">output_level</span><span class="p">)</span><span class="o">.</span><span class="n">to_i</span> <span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="ss">bg</span><span class="p">:</span> <span class="n">output_color</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c1"># `Display` is a phyiscal device (terminal hardware or emulator).</span>
+<span class="c1"># It can be instantiated manually as shown, or for quick coding it can be</span>
+<span class="c1"># skipped and it will be created automatically when needed.</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">Display</span><span class="o">.</span><span class="n">new</span>
+
+<span class="c1"># `Screen` is a full-screen surface which contains visual elements (Widgets),</span>
+<span class="c1"># on which graphics is rendered, and which is then drawn onto the terminal.</span>
+<span class="c1"># An app can have multiple screens, but only one can be showing at a time.</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">Screen</span><span class="o">.</span><span class="n">new</span> <span class="ss">display</span><span class="p">:</span> <span class="n">d</span>
+
+<span class="c1"># When q is pressed, exit the demo.</span>
+<span class="n">s</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">Event</span><span class="o">::</span><span class="n">KeyPress</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span>
+  <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">char</span> <span class="o">==</span> <span class="sc">&#39;q&#39;</span>
+    <span class="nb">exit</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="bp">spawn</span> <span class="k">do</span>
+  <span class="nb">loop</span> <span class="k">do</span>
+    <span class="nb">sleep</span> <span class="mf">0.1</span>
+    <span class="n">clear</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">draw_frame</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">render</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">d</span><span class="o">.</span><span class="n">exec</span>
+</code></pre></div></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="BASICS.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Basics" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Basics
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="SunVox.html" class="md-footer__link md-footer__link--next" aria-label="Next: API" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              API
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.76f349be.min.js"></script>
+      
+    
+  </body>
+</html>
