@@ -1,0 +1,126 @@
+Microsoft (R) COFF/PE Dumper Version 14.30.30705.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+
+Dump of file sunvox.dll
+
+File Type: DLL
+
+  Section contains the following exports for sunvox.dll
+
+    00000000 characteristics
+    6411FC63 time date stamp Wed Mar 15 10:12:03 2023
+        0.00 version
+           1 ordinal base
+          93 number of functions
+          93 number of names
+
+    ordinal hint RVA      name
+
+          1    0 0009DEE0 sv_audio_callback
+          2    1 0009DF10 sv_audio_callback2
+          3    2 0009DF60 sv_close_slot
+          4    3 0009E000 sv_connect_module
+          5    4 0009E0B0 sv_deinit
+          6    5 0009E120 sv_disconnect_module
+          7    6 0009E1D0 sv_end_of_song
+          8    7 0009E240 sv_find_module
+          9    8 0009E2B0 sv_find_pattern
+         10    9 0009E310 sv_get_autostop
+         11    A 0009E380 sv_get_current_line
+         12    B 0009E410 sv_get_current_line2
+         13    C 0009E480 sv_get_current_signal_level
+         14    D 0009E520 sv_get_log
+         15    E 0009E550 sv_get_module_color
+         16    F 0009E5F0 sv_get_module_ctl_group
+         17   10 0009E6A0 sv_get_module_ctl_max
+         18   11 0009E770 sv_get_module_ctl_min
+         19   12 0009E840 sv_get_module_ctl_name
+         20   13 0009E8F0 sv_get_module_ctl_offset
+         21   14 0009E9A0 sv_get_module_ctl_type
+         22   15 0009EA50 sv_get_module_ctl_value
+         23   16 0009EB30 sv_get_module_finetune
+         24   17 0009EBD0 sv_get_module_flags
+         25   18 0009ECD0 sv_get_module_inputs
+         26   19 0009ED60 sv_get_module_name
+         27   1A 0009EDE0 sv_get_module_outputs
+         28   1B 0009EE70 sv_get_module_scope2
+         29   1C 0009F010 sv_get_module_type
+         30   1D 0009F0E0 sv_get_module_xy
+         31   1E 0009F180 sv_get_number_of_module_ctls
+         32   1F 0009F210 sv_get_number_of_modules
+         33   20 0009F280 sv_get_number_of_patterns
+         34   21 0009F2F0 sv_get_pattern_data
+         35   22 0009F370 sv_get_pattern_event
+         36   23 0009F4A0 sv_get_pattern_lines
+         37   24 0009F520 sv_get_pattern_name
+         38   25 0009F5A0 sv_get_pattern_tracks
+         39   26 0009F620 sv_get_pattern_x
+         40   27 0009F6A0 sv_get_pattern_y
+         41   28 0009F720 sv_get_sample_rate
+         42   29 0009F730 sv_get_song_bpm
+         43   2A 0009F7A0 sv_get_song_length_frames
+         44   2B 0009F800 sv_get_song_length_lines
+         45   2C 0009F860 sv_get_song_name
+         46   2D 0009F8C0 sv_get_song_tpl
+         47   2E 0009F930 sv_get_ticks
+         48   2F 0009F940 sv_get_ticks_per_second
+         49   30 0009F950 sv_get_time_map
+         50   31 0009FE50 sv_init
+         51   32 0009FFE0 sv_load
+         52   33 000A0070 sv_load_from_memory
+         53   34 000A0140 sv_load_module
+         54   35 000A02D0 sv_load_module_from_memory
+         55   36 000A0480 sv_lock_slot
+         56   37 000A0500 sv_metamodule_load
+         57   38 000A0630 sv_metamodule_load_from_memory
+         58   39 000A0720 sv_module_curve
+         59   3A 000A07A0 sv_new_module
+         60   3B 000A0920 sv_new_pattern
+         61   3C 000A0A50 sv_open_slot
+         62   3D 000A0B40 sv_pattern_mute
+         63   3E 000A0C30 sv_pause
+         64   3F 000A0CB0 sv_play
+         65   40 000A0D30 sv_play_from_beginning
+         66   41 000A0DB0 sv_remove_module
+         67   42 000A0E60 sv_remove_pattern
+         68   43 000A0F10 sv_resume
+         69   44 000A0F90 sv_rewind
+         70   45 000A1000 sv_sampler_load
+         71   46 000A1150 sv_sampler_load_from_memory
+         72   47 000A1250 sv_save
+         73   48 000A12B0 sv_send_event
+         74   49 000A13C0 sv_set_autostop
+         75   4A 000A1430 sv_set_event_t
+         76   4B 000A14B0 sv_set_module_color
+         77   4C 000A1550 sv_set_module_ctl_value
+         78   4D 000A1740 sv_set_module_finetune
+         79   4E 000A17D0 sv_set_module_name
+         80   4F 000A1850 sv_set_module_relnote
+         81   50 000A18E0 sv_set_module_xy
+         82   51 000A1980 sv_set_pattern_event
+         83   52 000A1AB0 sv_set_pattern_name
+         84   53 000A1B60 sv_set_pattern_size
+         85   54 000A1CB0 sv_set_pattern_xy
+         86   55 000A1DA0 sv_set_song_name
+         87   56 000A1DF0 sv_stop
+         88   57 000A1E60 sv_sync_resume
+         89   58 000A1EE0 sv_unlock_slot
+         90   59 000A1F60 sv_update_input
+         91   5A 000A1F80 sv_volume
+         92   5B 000A2010 sv_vplayer_load
+         93   5C 000A2140 sv_vplayer_load_from_memory
+
+  Summary
+
+        1000 .CRT
+        1000 .bss
+        5000 .data
+        1000 .edata
+        2000 .idata
+        3000 .pdata
+       1F000 .rdata
+        1000 .reloc
+       AA000 .text
+        1000 .tls
+        4000 .xdata

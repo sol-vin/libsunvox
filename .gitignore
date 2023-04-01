@@ -5,4 +5,5 @@
 *.dwarf
 /rsrc/example/bin/
 /rsrc/example/lib/
+/rsrc/example/.*/
 

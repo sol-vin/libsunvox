@@ -4,6 +4,6 @@ version: 0.9
 authors:
   - Ian Rash <ian@sol.vin>
 
-crystal: 1.0
+crystal: 1.6.0
 
 license: MIT

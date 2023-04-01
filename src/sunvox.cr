@@ -109,9 +109,9 @@ module SunVox
 
   MAX_SLOTS = 16
 
-  CURRENT_VERSION_MAJOR  = 1
-  CURRENT_VERSION_MINOR  = 9
-  CURRENT_VERSION_MINOR2 = 6
+  CURRENT_VERSION_MAJOR  = 2
+  CURRENT_VERSION_MINOR  = 1
+  CURRENT_VERSION_MINOR2 = 0
   DEFAULT_CONFIG         = ""
   DEFAULT_FREQ           = 44100
   DEFAULT_CHANNELS       =     2
@@ -126,6 +126,9 @@ module SunVox
 
   # Starts up the SunVox Engine. Hooks `at_exit` to ensure `stop_engine` is run on close
   def self.start_engine(config = DEFAULT_CONFIG, freq = DEFAULT_FREQ, channels = DEFAULT_CHANNELS, no_debug_output = false, offline = false, sample_type = SampleType::Int16, one_thread = false)
+    
+
+
     flags = 0
     flags |= LibSunVox::INIT_FLAG_NO_DEBUG_OUTPUT if no_debug_output
     flags |= LibSunVox::INIT_FLAG_OFFLINE if offline
@@ -136,6 +139,8 @@ module SunVox
 
     # init spits out the version number in 0xMMmm22 format
     version = LibSunVox.init(config, freq, channels, flags)
+
+
     if version > 0 && _check_version(version)
       @@started = true
       # set sampling rate

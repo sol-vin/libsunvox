@@ -1,6 +1,6 @@
-# @[Include("/home/ian/Documents/crystal/sunshine/src/sunvox.h", prefix: %w(SV_ sv_))]
+# {% if !flag?(:win32) %}
 @[Link("sunvox")]
-
+# {% end %}
 lib LibSunVox
   # STYPE_INT16   = 0
   # STYPE_INT32   = 1
@@ -312,9 +312,18 @@ lib LibSunVox
   # Return value: pointer to the null-terminated string with the latest log messages.
   fun get_log = sv_get_log(LibC::Int) : LibC::Char*
 
+
+  # TODO: Found in lib when dumpbin
+  # sv_metamodule_load
+  # sv_metamodule_load_from_memory
+  # sv_sync_resume
+  # sv_vplayer_load
+  # sv_vplayer_load_from_memory
+
+
   # Wondows. 💩
   # fun load_dll2 = sv_load_dll2(filename : LibC::Char*) : LibC::Int
-  # fun load_dll = sv_load_dll : LibC::Int
+  fun load_dll = sv_load_dll : LibC::Int
   # fun unload_dll = sv_unload_dll : LibC::Int
 
   # Removed????

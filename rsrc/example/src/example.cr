@@ -1,7 +1,13 @@
 require "libsunvox"
 
 # Set the audiodevice and audiodevice_in to your alsa driver then speak into your microphone :)
-SunVox.start_engine(config: "audiodriver=alsa|audiodevice=hw:0,0|audiodevice_in=hw:2,0", no_debug_output: true, one_thread: false)
+
+{% if flag?(:win32) %}
+  SunVox.start_engine(config: "audiodriver=dsound|audiodevice=1|audiodevice_in=1", no_debug_output: false, one_thread: true)
+{% else %}
+  SunVox.start_engine(config: "audiodriver=alsa|audiodevice=hw:0,0|audiodevice_in=hw:2,0", no_debug_output: true, one_thread: true)
+{% end %}
+
 slot = SunVox.open_slot(SunVox::Slot::One)
 
 input = SunVox.new_module(slot, SunVox::Modules::Synths::INPUT)
