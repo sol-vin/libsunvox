@@ -3,7 +3,7 @@ require "libsunvox"
 # Set the audiodevice and audiodevice_in to your alsa driver then speak into your microphone :)
 
 {% if flag?(:win32) %}
-  SunVox.start_engine(config: "audiodriver=dsound|audiodevice=1|audiodevice_in=1", no_debug_output: false, one_thread: true)
+  SunVox.start_engine(config: "audiodriver=dsound|audiodevice=0|audiodevice_in=0", no_debug_output: false, one_thread: false)
 {% else %}
   SunVox.start_engine(config: "audiodriver=alsa|audiodevice=hw:0,0|audiodevice_in=hw:2,0", no_debug_output: true, one_thread: true)
 {% end %}
@@ -38,11 +38,19 @@ SunVox.send_event(slot, 0, SunVox::Note::None, 0, carrier, ctl: 2, ctl_value: 0x
 SunVox.send_event(slot, 0, SunVox::Note::None, 0, modulator, ctl: 1, ctl_value: 0x69c0)
 SunVox.send_event(slot, 0, SunVox::Note::None, 0, modulator, ctl: 2, ctl_value: 0)
 
-# Send all the notes
-SunVox.send_event(slot, 0, SunVox::Note::D1, 0, generator)
-SunVox.send_event(slot, 1, SunVox::Note::D2, 0, generator)
-SunVox.send_event(slot, 2, SunVox::Note::D3, 0, generator)
-SunVox.send_event(slot, 3, SunVox::Note::G4, 0, generator)
-SunVox.send_event(slot, 4, SunVox::Note::D5, 0, generator)
+notes = [
+  [SunVox::Note::D1, SunVox::Note::D2, SunVox::Note::D3, SunVox::Note::G4, SunVox::Note::D5],
+  [SunVox::Note::E1, SunVox::Note::E2, SunVox::Note::E3, SunVox::Note::A4, SunVox::Note::E5],
+  [SunVox::Note::C1, SunVox::Note::C2, SunVox::Note::C3, SunVox::Note::B4, SunVox::Note::C5],
+]
 
-sleep
+
+loop do
+  notes.each do |notes|
+    notes.each_with_index do |note, track|
+      # Send all the notes
+      SunVox.send_event(slot, track, note, 0x80, generator)
+    end
+    sleep 3
+  end
+end

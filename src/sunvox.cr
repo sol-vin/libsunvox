@@ -126,9 +126,6 @@ module SunVox
 
   # Starts up the SunVox Engine. Hooks `at_exit` to ensure `stop_engine` is run on close
   def self.start_engine(config = DEFAULT_CONFIG, freq = DEFAULT_FREQ, channels = DEFAULT_CHANNELS, no_debug_output = false, offline = false, sample_type = SampleType::Int16, one_thread = false)
-    
-
-
     flags = 0
     flags |= LibSunVox::INIT_FLAG_NO_DEBUG_OUTPUT if no_debug_output
     flags |= LibSunVox::INIT_FLAG_OFFLINE if offline

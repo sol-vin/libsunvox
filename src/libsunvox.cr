@@ -1,6 +1,5 @@
-# {% if !flag?(:win32) %}
+
 @[Link("sunvox")]
-# {% end %}
 lib LibSunVox
   # STYPE_INT16   = 0
   # STYPE_INT32   = 1
@@ -319,11 +318,13 @@ lib LibSunVox
   # sv_sync_resume
   # sv_vplayer_load
   # sv_vplayer_load_from_memory
+  # sv_fsave
+  # sv_fload
 
 
   # Wondows. 💩
   # fun load_dll2 = sv_load_dll2(filename : LibC::Char*) : LibC::Int
-  fun load_dll = sv_load_dll : LibC::Int
+  # fun load_dll = sv_load_dll : LibC::Int
   # fun unload_dll = sv_unload_dll : LibC::Int
 
   # Removed????
