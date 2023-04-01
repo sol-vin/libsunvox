@@ -122,6 +122,7 @@ module SunVox
   BUFFER_SIZE = 1024
 
   @@open_slots = {} of Int32 => Slot
+  class_getter? offline = false
 
   # Starts up the SunVox Engine. Hooks `at_exit` to ensure `stop_engine` is run on close
   def self.start_engine(config = DEFAULT_CONFIG, freq = DEFAULT_FREQ, channels = DEFAULT_CHANNELS, no_debug_output = false, offline = false, sample_type = SampleType::Int16, one_thread = false)
@@ -131,6 +132,8 @@ module SunVox
     flags |= LibSunVox::INIT_FLAG_AUDIO_INT16 if sample_type == SampleType::Int16
     flags |= LibSunVox::INIT_FLAG_AUDIO_FLOAT32 if sample_type == SampleType::Float32
     flags |= LibSunVox::INIT_FLAG_ONE_THREAD if one_thread
+
+    @@offline = offline
 
     # init spits out the version number in 0xMMmm22 format
     version = LibSunVox.init(config, freq, channels, flags)
@@ -660,10 +663,11 @@ module SunVox
   end
 
   def self.export_to_wav(slot, song_len_frames, out_filename)
+    raise "Must start in offline mode to export" unless offline?
     play_from_beginning(slot)
     frame_size = DEFAULT_CHANNELS * sample_size
 
-    buf = Slice(Int16).new(BUFFER_SIZE * frame_size)
+    buf = Slice(UInt8).new(BUFFER_SIZE * frame_size)
     
     song_len_bytes = song_len_frames * frame_size
 
@@ -690,9 +694,7 @@ module SunVox
         LibSunVox.audio_callback(buf.to_unsafe.as(Pointer(Void)), frames_num, 0, LibSunVox.get_ticks)
         cur_frame += frames_num
 
-        (frames_num * frame_size).times do |f|
-          file.write_bytes(buf[f], IO::ByteFormat::LittleEndian)
-        end
+        file.write(buf)
       end
     end
   end
