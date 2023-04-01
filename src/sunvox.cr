@@ -4,12 +4,9 @@ require "./scales"
 require "./macros/**"
 
 module SunVox
-  @[Flags]
-
-  # TODO: Fix this :(
-  # The different float/int types that the output can be typed as.
   enum SampleType
     Int16
+    Float32
   end
 
   # The slots SunVox can use. MAX: 16
@@ -121,6 +118,8 @@ module SunVox
 
   class_getter? started = false
   class_getter sample_rate = 0
+  class_getter sample_size = 2
+  BUFFER_SIZE = 1024
 
   @@open_slots = {} of Int32 => Slot
 
@@ -129,14 +128,14 @@ module SunVox
     flags = 0
     flags |= LibSunVox::INIT_FLAG_NO_DEBUG_OUTPUT if no_debug_output
     flags |= LibSunVox::INIT_FLAG_OFFLINE if offline
-    # TODO: Not sure how to actually support this :|
-    # flags |= LibSunVox::INIT_FLAG_AUDIO_INT16 if sample_type == SampleType::Int16
-    # flags |= LibSunVox::INIT_FLAG_AUDIO_FLOAT32 if sample_type == SampleType::Float32
+    flags |= LibSunVox::INIT_FLAG_AUDIO_INT16 if sample_type == SampleType::Int16
+    flags |= LibSunVox::INIT_FLAG_AUDIO_FLOAT32 if sample_type == SampleType::Float32
     flags |= LibSunVox::INIT_FLAG_ONE_THREAD if one_thread
 
     # init spits out the version number in 0xMMmm22 format
     version = LibSunVox.init(config, freq, channels, flags)
 
+    @@sample_size = 4 if sample_type == SampleType::Float32
 
     if version > 0 && _check_version(version)
       @@started = true
@@ -658,5 +657,43 @@ module SunVox
 
   def self.frequency_to_pitch(in_freq)
     30720 - Math.log2(in_freq / 16.333984375) * 3072
+  end
+
+  def self.export_to_wav(slot, song_len_frames, out_filename)
+    play_from_beginning(slot)
+    frame_size = DEFAULT_CHANNELS * sample_size
+
+    buf = Slice(Int16).new(BUFFER_SIZE * frame_size)
+    
+    song_len_bytes = song_len_frames * frame_size
+
+    File.open(out_filename, "w+") do |file|
+      file << "RIFF"
+      file.write_bytes((4 + 24 + 8 + song_len_bytes).to_u32, IO::ByteFormat::LittleEndian)
+      file << "WAVEfmt "
+      file.write_bytes(16_u32, IO::ByteFormat::LittleEndian)
+      file.write_bytes(1_u16, IO::ByteFormat::LittleEndian)
+      file.write_bytes(DEFAULT_CHANNELS.to_u16, IO::ByteFormat::LittleEndian)
+      file.write_bytes(sample_rate.to_u32, IO::ByteFormat::LittleEndian)
+      file.write_bytes((sample_rate * frame_size).to_u32, IO::ByteFormat::LittleEndian)
+      file.write_bytes(frame_size.to_u16, IO::ByteFormat::LittleEndian)
+      file.write_bytes((sample_size * 8).to_u16, IO::ByteFormat::LittleEndian)
+      file << "data"
+      file.write_bytes(song_len_bytes, IO::ByteFormat::LittleEndian)
+
+      pos = 0
+      cur_frame = 0
+      while cur_frame < song_len_frames
+        frames_num = BUFFER_SIZE
+        frames_num = song_len_frames - cur_frame if (cur_frame + frames_num) > song_len_frames
+
+        LibSunVox.audio_callback(buf.to_unsafe.as(Pointer(Void)), frames_num, 0, LibSunVox.get_ticks)
+        cur_frame += frames_num
+
+        (frames_num * frame_size).times do |f|
+          file.write_bytes(buf[f], IO::ByteFormat::LittleEndian)
+        end
+      end
+    end
   end
 end

@@ -335,5 +335,4 @@ lib LibSunVox
   # fun get_sample_type = sv_get_sample_type : LibC::Int
 end
 
-require "./note"
 require "./sunvox"
