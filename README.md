@@ -4,11 +4,21 @@ SunVox C Bindings! Will, in the future, be a fully features library for using an
 
 ## Installation
 
-This was only tested on Ubuntu so it might not work on other systems :(
+## Linux
+Run `sudo ./rsrc/linux/install.sh` to install sunvox library.
+Then run `./rsrc/example/build.sh` to run a test
 
-Run `sudo ./install.sh` to install sunvox library.
+## Windows
+Run `sudo ./rsrc/windows/install.ps1` to install sunvox library.
 
-Then run `./run-example.sh` to run a test
+Run
+```ps1
+$env:LIB = "${env:LIB};C:\sunvox"
+$env:PATH = "${env:PATH};C:\sunvox"
+```
+Then run `./rsrc/example/build.ps1` to run a test
+
+
 
 ## Docs
 
