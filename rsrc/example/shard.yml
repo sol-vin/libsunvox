@@ -2,7 +2,7 @@ name: libsunvox-example
 version: 0.1.0
 
 authors:
-  - Ian Rash <redcodefinal@gmail.com>
+  - Ian Rash <ian@sol.vin>
 
 targets:
   example:
@@ -10,8 +10,8 @@ targets:
 
 dependencies:
   libsunvox:
-    github: sol-vin/libsunvox
+    path: ../..
 
-crystal: 1.0
+crystal: ">= 1.6.0"
 
 license: MIT

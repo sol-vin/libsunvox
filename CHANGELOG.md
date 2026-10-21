@@ -1,4 +1,6 @@
 # CARBON CHANGELOG
+## [0.10.13] - 2026-10-20
+---
 ## [0.10.12] - 2026-10-20
 ### ✨ Features & Improvements
 - ✦ **[CORE]** update to SunVox v2.1.4d, bind all 96 C functions, add OOP wrapper, and add multi-OS CI/Release workflows ([`45332d2`](https://github.com/sol-vin/libsunvox/commit/45332d2))

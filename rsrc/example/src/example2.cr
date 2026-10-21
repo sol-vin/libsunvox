@@ -1,4 +1,4 @@
-require "libsunvox"
+require "../../../src/libsunvox"
 
 SunVox.start_engine(offline: true, no_debug_output: false, one_thread: false)
 

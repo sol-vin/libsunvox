@@ -153,6 +153,9 @@ jobs:
       - name: Install Shards Dependencies
         run: shards install
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       - name: Build Crystal Docs
         run: |
           crystal docs --output=site

@@ -1,4 +1,4 @@
-require "libsunvox"
+require "../../../src/libsunvox"
 
 # Set the audiodevice and audiodevice_in to your alsa driver then speak into your microphone :)
 
