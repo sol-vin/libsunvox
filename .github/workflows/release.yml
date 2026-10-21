@@ -1,0 +1,128 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Release Tag Name (e.g. v0.10.0, or leave empty to use version from shard.yml)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    name: Verify (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install SunVox & ALSA Dependencies (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libasound2-dev
+          sudo sh ./rsrc/linux/install.sh
+
+      - name: Install SunVox Library (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          sudo sh ./rsrc/macos/install.sh
+
+      - name: Install SunVox Library (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          ./rsrc/windows/install.ps1
+          "C:\sunvox" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          "LIB=C:\sunvox;$($env:LIB)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - name: Install Crystal
+        uses: crystal-lang/install-crystal@v1
+        with:
+          crystal: 1.21.0
+
+      - name: Install Shards Dependencies
+        run: shards install
+
+      - name: Run Test Suite
+        run: |
+          crystal spec --verbose --error-trace
+
+  release:
+    name: Publish GitHub Release
+    needs: [verify]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update apt repositories
+        run: sudo apt-get update && sudo apt-get install -y zip libasound2-dev
+
+      - name: Install SunVox Library
+        run: sudo sh ./rsrc/linux/install.sh
+
+      - name: Install Crystal
+        uses: crystal-lang/install-crystal@v1
+        with:
+          crystal: 1.21.0
+
+      - name: Install Shards Dependencies
+        run: shards install
+
+      - name: Verify Formatting & Run Tests
+        run: |
+          crystal tool format --check src spec
+          crystal spec
+
+      - name: Resolve Release Tag
+        id: meta
+        run: |
+          INPUT_TAG="${{ github.event.inputs.tag_name }}"
+          if [ -n "$INPUT_TAG" ]; then
+            TAG="$INPUT_TAG"
+          elif [ "${{ github.ref_type }}" = "tag" ]; then
+            TAG="${{ github.ref_name }}"
+          else
+            SHARD_VER=$(awk '/^version:/ {print $2}' shard.yml | tr -d ' "\r\n')
+            TAG="v${SHARD_VER}"
+          fi
+          echo "tag_name=${TAG}" >> "$GITHUB_OUTPUT"
+
+      - name: Package Platform Bundles & API Documentation
+        run: |
+          TAG="${{ steps.meta.outputs.tag_name }}"
+          crystal docs --output=site
+          tar -czf "libsunvox-docs-${TAG}.tar.gz" -C site .
+          tar -czf "libsunvox-${TAG}-linux.tar.gz" rsrc/linux rsrc/headers docs/license LICENSE
+          tar -czf "libsunvox-${TAG}-macos.tar.gz" rsrc/macos rsrc/headers docs/license LICENSE
+          zip -r "libsunvox-${TAG}-windows.zip" rsrc/windows rsrc/headers docs/license LICENSE
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.meta.outputs.tag_name }}
+          name: libsunvox ${{ steps.meta.outputs.tag_name }} (SunVox v2.1.4d)
+          files: |
+            libsunvox-docs-${{ steps.meta.outputs.tag_name }}.tar.gz
+            libsunvox-${{ steps.meta.outputs.tag_name }}-linux.tar.gz
+            libsunvox-${{ steps.meta.outputs.tag_name }}-macos.tar.gz
+            libsunvox-${{ steps.meta.outputs.tag_name }}-windows.zip
+          body_path: CHANGELOG.md
+          generate_release_notes: true
+          draft: false
+          prerelease: false

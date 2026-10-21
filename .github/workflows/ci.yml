@@ -1,0 +1,177 @@
+name: CI
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' && github.ref != 'refs/heads/main' }}
+
+jobs:
+  # =========================================================================
+  # LINT & FORMATTING CHECK
+  # =========================================================================
+  lint:
+    name: Lint & Format Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update apt repositories
+        run: sudo apt-get update
+
+      - name: Install Crystal
+        uses: crystal-lang/install-crystal@v1
+        with:
+          crystal: 1.21.0
+
+      - name: Verify Code Formatting
+        run: |
+          crystal tool format --check src spec
+
+      - name: Install Shards Dependencies
+        run: shards install
+
+      - name: Build Carbon Binary
+        run: shards build carbon
+
+      - name: Verify Version Alignment & Changelog
+        run: |
+          bin/carbon check
+          bin/carbon changelog --compile
+          git diff --exit-code CHANGELOG.md
+          bin/carbon doctor
+
+  # =========================================================================
+  # MULTI-OS TEST MATRIX (Linux, macOS, Windows) x (1.21.0, latest)
+  # =========================================================================
+  test:
+    name: Test (${{ matrix.os }}, Crystal ${{ matrix.crystal }})
+    needs: [lint]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        crystal: ["1.21.0", "latest"]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install SunVox & ALSA Dependencies (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libasound2-dev
+          sudo sh ./rsrc/linux/install.sh
+
+      - name: Install SunVox Library (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          sudo sh ./rsrc/macos/install.sh
+
+      - name: Install SunVox Library (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          ./rsrc/windows/install.ps1
+          "C:\sunvox" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+          "LIB=C:\sunvox;$($env:LIB)" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - name: Install Crystal (${{ matrix.crystal }})
+        uses: crystal-lang/install-crystal@v1
+        with:
+          crystal: ${{ matrix.crystal }}
+
+      - name: Install Shards Dependencies
+        run: shards install
+
+      - name: Cache Crystal Cache (Linux / macOS)
+        if: runner.os != 'Windows'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/crystal
+          key: crystal-cache-${{ runner.os }}-${{ matrix.crystal }}-${{ hashFiles('shard.yml') }}
+          restore-keys: |
+            crystal-cache-${{ runner.os }}-${{ matrix.crystal }}-
+
+      - name: Cache Crystal Cache (Windows)
+        if: runner.os == 'Windows'
+        uses: actions/cache@v4
+        with:
+          path: ~\AppData\Local\crystal\cache
+          key: crystal-cache-${{ runner.os }}-${{ matrix.crystal }}-${{ hashFiles('shard.yml') }}
+          restore-keys: |
+            crystal-cache-${{ runner.os }}-${{ matrix.crystal }}-
+
+      - name: Run Test Suite
+        run: |
+          crystal spec --verbose --error-trace
+
+      - name: Verify Examples Compilation
+        run: |
+          crystal build --no-codegen rsrc/example/src/example.cr
+          crystal build --no-codegen rsrc/example/src/example2.cr
+
+  # =========================================================================
+  # DOCUMENTATION GENERATION & PAGES DEPLOYMENT
+  # =========================================================================
+  docs:
+    name: Generate Documentation
+    needs: [test]
+    runs-on: ubuntu-latest
+    if: (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main') && github.event_name == 'push'
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update apt repositories
+        run: sudo apt-get update
+
+      - name: Install Crystal
+        uses: crystal-lang/install-crystal@v1
+        with:
+          crystal: 1.21.0
+
+      - name: Install Shards Dependencies
+        run: shards install
+
+      - name: Build Crystal Docs
+        run: |
+          crystal docs --output=site
+          touch site/.nojekyll
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/
+
+  deploy-pages:
+    name: Deploy to GitHub Pages
+    needs: [docs]
+    runs-on: ubuntu-latest
+    if: (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main') && github.event_name == 'push'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

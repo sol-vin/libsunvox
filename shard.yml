@@ -1,9 +1,20 @@
 name: libsunvox
-version: 0.9
+version: 0.10.11
 
 authors:
   - Ian Rash <ian@sol.vin>
 
-crystal: 1.6.0
+description: Crystal bindings and high-level object-oriented wrapper for the SunVox modular synthesizer and tracker library (v2.1.4d).
+
+crystal: ">= 1.6.0"
 
 license: MIT
+
+development_dependencies:
+  carbon:
+    github: sol-vin/carbon
+    branch: main
+
+targets:
+  carbon:
+    main: lib/carbon/src/carbon/cli.cr

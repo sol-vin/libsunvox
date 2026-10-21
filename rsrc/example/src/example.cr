@@ -28,7 +28,6 @@ SunVox.update_input
 
 SunVox.send_event(slot, 0, SunVox::Note::None, 0, generator, ctl: 2, ctl_value: 0x1)
 
-
 # Set carrier controls
 SunVox.send_event(slot, 0, SunVox::Note::None, 0, carrier, ctl: 1, ctl_value: 0x4000)
 
@@ -44,13 +43,12 @@ notes = [
   [SunVox::Note::C1, SunVox::Note::C2, SunVox::Note::C3, SunVox::Note::B4, SunVox::Note::C5],
 ]
 
-
 loop do
   notes.each do |notes|
     notes.each_with_index do |note, track|
       # Send all the notes
       SunVox.send_event(slot, track, note, 0x80, generator)
     end
-    sleep 3
+    sleep 3.seconds
   end
 end

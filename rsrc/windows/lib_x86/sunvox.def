@@ -9,6 +9,7 @@ sv_end_of_song
 sv_find_module
 sv_find_pattern
 sv_get_autostop
+sv_get_base_version
 sv_get_current_line
 sv_get_current_line2
 sv_get_current_signal_level
@@ -70,7 +71,9 @@ sv_resume
 sv_rewind
 sv_sampler_load
 sv_sampler_load_from_memory
+sv_sampler_par
 sv_save
+sv_save_to_memory
 sv_send_event
 sv_set_autostop
 sv_set_event_t

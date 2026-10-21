@@ -1,0 +1,136 @@
+---
+settings:
+  title: CARBON CHANGELOG
+  output_file: CHANGELOG.md
+  auto_link_github: true
+  categories:
+    breaking:
+      title: "\U0001F4A5 Breaking Changes"
+      bullet: ▲
+    features:
+      title: ✨ Features & Improvements
+      bullet: ✦
+    fixes:
+      title: "\U0001F41B Bug Fixes"
+      bullet: ✓
+    perf:
+      title: ⚡ Performance Optimizations
+      bullet: "\U0001F680"
+    docs:
+      title: "\U0001F4DA Documentation"
+      bullet: "\U0001F4D6"
+    maintenance:
+      title: "\U0001F6E0️ Chores & Tooling"
+      bullet: •
+releases:
+- version: 0.10.11
+  date: "2026-10-20"
+  status: active
+  entries:
+  - type: other
+    description: Added basic work
+    bullet: •
+    hash: 7a422f7
+    author: Ian Rash
+  - type: other
+    description: Squash
+    bullet: •
+    hash: 75f529c
+    author: Ian Rash
+  - type: other
+    description: Fix install and uninstall scripts
+    bullet: •
+    hash: 5f0f850
+    author: Ian Rash
+  - type: other
+    description: Added live monitor example
+    bullet: •
+    hash: 6dcdad4
+    author: Ian Rash
+  - type: other
+    description: Update readme
+    bullet: •
+    hash: a61650e
+    author: Ian Rash
+  - type: other
+    description: Windows is now supported!
+    bullet: •
+    hash: 576e8e3
+    author: Ian Rash
+  - type: other
+    description: Update example, fixed some bugs
+    bullet: •
+    hash: f071b21
+    author: Ian Rash
+  - type: other
+    description: Working on export to WAV, still broken
+    bullet: •
+    hash: 19b8e18
+    author: Ian Rash
+  - type: other
+    description: Fixed export to wav
+    bullet: •
+    hash: 5b0068a
+    author: Ian Rash
+  - type: other
+    description: Fix install instructions
+    bullet: •
+    hash: 6a4d316
+    author: Ian Rash
+- version: 0.10.10
+  date: "2026-10-20"
+  status: released
+  summary: SunVox v2.1.4d upgrade, complete 96-function C API bindings, high-level
+    OOP wrapper (Slot, Module, Controller, Pattern), macOS/Linux/Windows binaries,
+    and multi-OS CI/CD.
+  entries:
+  - type: feat
+    description: Added basic work
+    bullet: ✦
+    hash: 7a422f7
+    author: Ian Rash
+  - type: maintenance
+    description: Squash
+    bullet: •
+    hash: 75f529c
+    author: Ian Rash
+  - type: fix
+    description: Fix install and uninstall scripts
+    bullet: ✓
+    hash: 5f0f850
+    author: Ian Rash
+  - type: feat
+    description: Added live monitor example
+    bullet: ✦
+    hash: 6dcdad4
+    author: Ian Rash
+  - type: docs
+    description: Update readme
+    bullet: "\U0001F4D6"
+    hash: a61650e
+    author: Ian Rash
+  - type: feat
+    description: Windows is now supported!
+    bullet: ✦
+    hash: 576e8e3
+    author: Ian Rash
+  - type: fix
+    description: Update example, fixed some bugs
+    bullet: ✓
+    hash: f071b21
+    author: Ian Rash
+  - type: maintenance
+    description: Working on export to WAV, still broken
+    bullet: •
+    hash: 19b8e18
+    author: Ian Rash
+  - type: fix
+    description: Fixed export to wav
+    bullet: ✓
+    hash: 5b0068a
+    author: Ian Rash
+  - type: docs
+    description: Fix install instructions
+    bullet: "\U0001F4D6"
+    hash: 6a4d316
+    author: Ian Rash

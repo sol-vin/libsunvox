@@ -1,6 +1,6 @@
 /*
    SunVox Library (modular synthesizer)
-   Copyright (c) 2008 - 2023, Alexander Zolotov <nightradio@gmail.com>, WarmPlace.ru
+   Copyright (c) 2008 - 2024, Alexander Zolotov <nightradio@gmail.com>, WarmPlace.ru
 */
 
 /*
@@ -206,8 +206,27 @@ int sv_load_from_memory( int slot, void* data, uint32_t data_size ) SUNVOX_FN_AT
 
 /*
    sv_save() - save project to the file;
+   sv_save_to_memory() - save project to memory; return value: memory block allocated with malloc();
+   Parameters:
+     slot;
+     name - file name;
+     size - pointer to a variable in which the size of the data will be stored.
+   Example 1:
+     sv_save( slot, "proj.sunvox" );
+   Example 2:
+     size_t data_size = 0; //in bytes
+     void* data = sv_save_to_memory( slot, &data_size );
+     if( data )
+     {
+       if( data_size )
+       {
+         //do something with data
+       }
+       free( data );
+     }
 */
 int sv_save( int slot, const char* name ) SUNVOX_FN_ATTR;
+void* sv_save_to_memory( int slot, size_t* size ) SUNVOX_FN_ATTR;
 
 /*
    sv_play() - play from the current position;
@@ -283,6 +302,7 @@ int sv_get_current_signal_level( int slot, int channel ) SUNVOX_FN_ATTR; /* From
 */
 const char* sv_get_song_name( int slot ) SUNVOX_FN_ATTR;
 int sv_set_song_name( int slot, const char* name ) SUNVOX_FN_ATTR;
+int sv_get_base_version( int slot ) SUNVOX_FN_ATTR;
 int sv_get_song_bpm( int slot ) SUNVOX_FN_ATTR;
 int sv_get_song_tpl( int slot ) SUNVOX_FN_ATTR;
 
@@ -320,7 +340,7 @@ int sv_connect_module( int slot, int source, int destination ) SUNVOX_FN_ATTR; /
 int sv_disconnect_module( int slot, int source, int destination ) SUNVOX_FN_ATTR; /* USE LOCK/UNLOCK! */
 
 /*
-   sv_load_module() - load a module or sample; supported file formats: sunsynth, xi, wav, aiff;
+   sv_load_module() - load a module or sample; supported file formats: sunsynth, xi, wav, aiff, ogg, mp3, flac;
                       return value: new module number or negative value in case of some error;
    sv_load_module_from_memory() - load a module or sample from the memory block;
 */
@@ -330,9 +350,20 @@ int sv_load_module_from_memory( int slot, void* data, uint32_t data_size, int x,
 /*
    sv_sampler_load() - load a sample into the Sampler; to replace the whole sampler - set sample_slot to -1;
    sv_sampler_load_from_memory() - load a sample from the memory block;
+   sv_sampler_par() - set/get sample parameter:
+     0 - Loop begin: 0 ... (sample_length - 1);
+     1 - Loop length: 0 ... (sample_length - loop_begin);
+     2 - Loop type: 0 - none; 1 - fwd; 2 - bidirectional;
+     3 - Loop release flag: 0 - none; 1 - loop will be finished after the note release;
+     4 - Volume: 0 ... 64;
+     5 - Panning: 0 (left) ... 128 (center) ... 255 (right);
+     6 - Finetune: -128 ... 0 ... +127 (higher value = higher pitch);
+     7 - Relative note: -128 ... 0 ... +127 (higher value = higher pitch);
+     8 - Start position: 0 ... (sample_length - 1);
 */
 int sv_sampler_load( int slot, int mod_num, const char* file_name, int sample_slot ) SUNVOX_FN_ATTR;
 int sv_sampler_load_from_memory( int slot, int mod_num, void* data, uint32_t data_size, int sample_slot ) SUNVOX_FN_ATTR;
+int sv_sampler_par( int slot, int mod_num, int sample_slot, int par, int par_val, int set ) SUNVOX_FN_ATTR;
 
 /*
    sv_metamodule_load() - load a file into the MetaModule; supported file formats: sunvox, mod, xm, midi;
@@ -623,6 +654,7 @@ typedef int (SUNVOX_FN_ATTR *tsv_update_input)( void );
 typedef int (SUNVOX_FN_ATTR *tsv_load)( int slot, const char* name );
 typedef int (SUNVOX_FN_ATTR *tsv_load_from_memory)( int slot, void* data, uint32_t data_size );
 typedef int (SUNVOX_FN_ATTR *tsv_save)( int slot, const char* name );
+typedef void* (SUNVOX_FN_ATTR *tsv_save_to_memory)( int slot, size_t* size );
 typedef int (SUNVOX_FN_ATTR *tsv_play)( int slot );
 typedef int (SUNVOX_FN_ATTR *tsv_play_from_beginning)( int slot );
 typedef int (SUNVOX_FN_ATTR *tsv_stop)( int slot );
@@ -641,6 +673,7 @@ typedef int (SUNVOX_FN_ATTR *tsv_get_current_line2)( int slot );
 typedef int (SUNVOX_FN_ATTR *tsv_get_current_signal_level)( int slot, int channel );
 typedef const char* (SUNVOX_FN_ATTR *tsv_get_song_name)( int slot );
 typedef int (SUNVOX_FN_ATTR *tsv_set_song_name)( int slot, const char* name );
+typedef int (SUNVOX_FN_ATTR *tsv_get_base_version)( int slot );
 typedef int (SUNVOX_FN_ATTR *tsv_get_song_bpm)( int slot );
 typedef int (SUNVOX_FN_ATTR *tsv_get_song_tpl)( int slot );
 typedef uint32_t (SUNVOX_FN_ATTR *tsv_get_song_length_frames)( int slot );
@@ -654,6 +687,7 @@ typedef int (SUNVOX_FN_ATTR *tsv_load_module)( int slot, const char* file_name, 
 typedef int (SUNVOX_FN_ATTR *tsv_load_module_from_memory)( int slot, void* data, uint32_t data_size, int x, int y, int z );
 typedef int (SUNVOX_FN_ATTR *tsv_sampler_load)( int slot, int mod_num, const char* file_name, int sample_slot );
 typedef int (SUNVOX_FN_ATTR *tsv_sampler_load_from_memory)( int slot, int mod_num, void* data, uint32_t data_size, int sample_slot );
+typedef int (SUNVOX_FN_ATTR *tsv_sampler_par)( int slot, int mod_num, int sample_slot, int par, int par_val, int set );
 typedef int (SUNVOX_FN_ATTR *tsv_metamodule_load)( int slot, int mod_num, const char* file_name );
 typedef int (SUNVOX_FN_ATTR *tsv_metamodule_load_from_memory)( int slot, int mod_num, void* data, uint32_t data_size );
 typedef int (SUNVOX_FN_ATTR *tsv_vplayer_load)( int slot, int mod_num, const char* file_name );
@@ -725,6 +759,7 @@ SV_FN_DECL tsv_update_input sv_update_input SV_FN_DECL2;
 SV_FN_DECL tsv_load sv_load SV_FN_DECL2;
 SV_FN_DECL tsv_load_from_memory sv_load_from_memory SV_FN_DECL2;
 SV_FN_DECL tsv_save sv_save SV_FN_DECL2;
+SV_FN_DECL tsv_save_to_memory sv_save_to_memory SV_FN_DECL2;
 SV_FN_DECL tsv_play sv_play SV_FN_DECL2;
 SV_FN_DECL tsv_play_from_beginning sv_play_from_beginning SV_FN_DECL2;
 SV_FN_DECL tsv_stop sv_stop SV_FN_DECL2;
@@ -743,6 +778,7 @@ SV_FN_DECL tsv_get_current_line2 sv_get_current_line2 SV_FN_DECL2;
 SV_FN_DECL tsv_get_current_signal_level sv_get_current_signal_level SV_FN_DECL2;
 SV_FN_DECL tsv_get_song_name sv_get_song_name SV_FN_DECL2;
 SV_FN_DECL tsv_set_song_name sv_set_song_name SV_FN_DECL2;
+SV_FN_DECL tsv_get_base_version sv_get_base_version SV_FN_DECL2;
 SV_FN_DECL tsv_get_song_bpm sv_get_song_bpm SV_FN_DECL2;
 SV_FN_DECL tsv_get_song_tpl sv_get_song_tpl SV_FN_DECL2;
 SV_FN_DECL tsv_get_song_length_frames sv_get_song_length_frames SV_FN_DECL2;
@@ -756,6 +792,7 @@ SV_FN_DECL tsv_load_module sv_load_module SV_FN_DECL2;
 SV_FN_DECL tsv_load_module_from_memory sv_load_module_from_memory SV_FN_DECL2;
 SV_FN_DECL tsv_sampler_load sv_sampler_load SV_FN_DECL2;
 SV_FN_DECL tsv_sampler_load_from_memory sv_sampler_load_from_memory SV_FN_DECL2;
+SV_FN_DECL tsv_sampler_par sv_sampler_par SV_FN_DECL2;
 SV_FN_DECL tsv_metamodule_load sv_metamodule_load SV_FN_DECL2;
 SV_FN_DECL tsv_metamodule_load_from_memory sv_metamodule_load_from_memory SV_FN_DECL2;
 SV_FN_DECL tsv_vplayer_load sv_vplayer_load SV_FN_DECL2;
@@ -869,6 +906,7 @@ int sv_load_dll2( LIBNAME_STR_TYPE filename )
 	IMPORT( g_sv_dll, tsv_load, "sv_load", sv_load );
 	IMPORT( g_sv_dll, tsv_load_from_memory, "sv_load_from_memory", sv_load_from_memory );
 	IMPORT( g_sv_dll, tsv_save, "sv_save", sv_save );
+	IMPORT( g_sv_dll, tsv_save_to_memory, "sv_save_to_memory", sv_save_to_memory );
 	IMPORT( g_sv_dll, tsv_play, "sv_play", sv_play );
 	IMPORT( g_sv_dll, tsv_play_from_beginning, "sv_play_from_beginning", sv_play_from_beginning );
 	IMPORT( g_sv_dll, tsv_stop, "sv_stop", sv_stop );
@@ -887,6 +925,7 @@ int sv_load_dll2( LIBNAME_STR_TYPE filename )
 	IMPORT( g_sv_dll, tsv_get_current_signal_level, "sv_get_current_signal_level", sv_get_current_signal_level );
 	IMPORT( g_sv_dll, tsv_get_song_name, "sv_get_song_name", sv_get_song_name );
 	IMPORT( g_sv_dll, tsv_set_song_name, "sv_set_song_name", sv_set_song_name );
+	IMPORT( g_sv_dll, tsv_get_base_version, "sv_get_base_version", sv_get_base_version );
 	IMPORT( g_sv_dll, tsv_get_song_bpm, "sv_get_song_bpm", sv_get_song_bpm );
 	IMPORT( g_sv_dll, tsv_get_song_tpl, "sv_get_song_tpl", sv_get_song_tpl );
 	IMPORT( g_sv_dll, tsv_get_song_length_frames, "sv_get_song_length_frames", sv_get_song_length_frames );
@@ -900,6 +939,7 @@ int sv_load_dll2( LIBNAME_STR_TYPE filename )
 	IMPORT( g_sv_dll, tsv_load_module_from_memory, "sv_load_module_from_memory", sv_load_module_from_memory );
 	IMPORT( g_sv_dll, tsv_sampler_load, "sv_sampler_load", sv_sampler_load );
 	IMPORT( g_sv_dll, tsv_sampler_load_from_memory, "sv_sampler_load_from_memory", sv_sampler_load_from_memory );
+	IMPORT( g_sv_dll, tsv_sampler_par, "sv_sampler_par", sv_sampler_par );
 	IMPORT( g_sv_dll, tsv_metamodule_load, "sv_metamodule_load", sv_metamodule_load );
 	IMPORT( g_sv_dll, tsv_metamodule_load_from_memory, "sv_metamodule_load_from_memory", sv_metamodule_load_from_memory );
 	IMPORT( g_sv_dll, tsv_vplayer_load, "sv_vplayer_load", sv_vplayer_load );

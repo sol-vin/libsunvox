@@ -1,6 +1,6 @@
-version: 1.0
+version: 2.0
 shards:
-  asound:
-    github: TamasSzekeres/asound-cr
-    commit: c003f5ab2b984b4183f76a2bb878fda1385546ad
+  carbon:
+    git: https://github.com/sol-vin/carbon.git
+    version: 0.1.18+git.commit.9c1862475f5a611e2ac31212ba0b9407e9376503
 

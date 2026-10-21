@@ -1,2 +1,2 @@
 require "spec"
-require "../src/sunshine"
+require "../src/libsunvox"
