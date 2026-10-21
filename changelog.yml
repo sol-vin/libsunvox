@@ -23,10 +23,28 @@ settings:
       title: "\U0001F6E0️ Chores & Tooling"
       bullet: •
 releases:
-- version: 0.10.13
+- version: 0.10.14
   date: "2026-10-20"
   status: active
-  entries: []
+  entries:
+  - type: fix
+    description: use relative require path in example files and configure GitHub Pages
+      workflow
+    bullet: ✓
+    badge: '[EXAMPLE]'
+    hash: 1bf4e93
+    author: Ian Rash
+- version: 0.10.13
+  date: "2026-10-20"
+  status: released
+  entries:
+  - type: fix
+    description: use relative require path in example files and configure GitHub Pages
+      workflow
+    bullet: ✓
+    badge: '[EXAMPLE]'
+    hash: 1bf4e93
+    author: Ian Rash
 - version: 0.10.12
   date: "2026-10-20"
   status: released

@@ -1,5 +1,13 @@
 # CARBON CHANGELOG
+## [0.10.14] - 2026-10-20
+### 🐛 Bug Fixes
+- ✓ **[EXAMPLE]** use relative require path in example files and configure GitHub Pages workflow ([`1bf4e93`](https://github.com/sol-vin/libsunvox/commit/1bf4e93))
+
+---
 ## [0.10.13] - 2026-10-20
+### 🐛 Bug Fixes
+- ✓ **[EXAMPLE]** use relative require path in example files and configure GitHub Pages workflow ([`1bf4e93`](https://github.com/sol-vin/libsunvox/commit/1bf4e93))
+
 ---
 ## [0.10.12] - 2026-10-20
 ### ✨ Features & Improvements
